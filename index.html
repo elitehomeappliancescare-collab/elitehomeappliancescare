@@ -1,0 +1,276 @@
+<!--
+  Elite Home Appliances Care - Single-file website template
+  Edit the placeholders below (SEARCH FOR "REPLACE_ME") to add your real details:
+    - Business name
+    - Phone, email, address
+    - Services list
+    - Logo (replace the <img> src or remove)
+
+  Usage:
+    1. Save this file as index.html
+    2. Replace placeholders marked REPLACE_ME
+    3. Host on any static host (Netlify, Vercel, Hostinger, GitHub Pages, etc.)
+-->
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Elite Home Appliances Care</title>
+  <meta name="description" content="Elite Home Appliances Care — professional appliance repair & service. AC, Fridge, Washing Machine, Microwave and more.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --accent:#0b74e6; /* primary color */
+      --dark:#0f1724;
+      --muted:#6b7280;
+      --card:#ffffff;
+      --glass: rgba(255,255,255,0.06);
+      --radius:14px;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      color-scheme: light;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:linear-gradient(180deg,#f7fbff 0%, #ffffff 100%);color:var(--dark);line-height:1.5}
+    .container{max-width:1100px;margin:0 auto;padding:24px}
+
+    header{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand img{height:56px;width:56px;object-fit:contain;border-radius:10px;background:#fff;padding:8px}
+    .brand h1{font-size:1.15rem;margin:0}
+    nav a{margin-left:18px;text-decoration:none;color:var(--muted);font-weight:600}
+    .cta{background:var(--accent);color:#fff;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;margin-top:18px}
+    .hero-card{background:linear-gradient(180deg,#fff,#f8fbff);padding:28px;border-radius:18px;box-shadow:0 6px 30px rgba(15,23,36,0.06)}
+    .eyebrow{display:inline-block;background:rgba(11,116,230,0.08);color:var(--accent);padding:6px 10px;border-radius:999px;font-weight:700;font-size:0.8rem}
+    h2{font-size:1.9rem;margin:12px 0}
+    p.lead{color:var(--muted);margin:0 0 18px}
+    .features{display:flex;gap:10px;flex-wrap:wrap}
+    .feature{background:#fff;padding:10px 12px;border-radius:10px;border:1px solid rgba(15,23,36,0.04);font-weight:600}
+
+    /* Services grid */
+    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px}
+    .service{background:#fff;padding:18px;border-radius:12px;box-shadow:0 4px 18px rgba(15,23,36,0.04)}
+    .service h3{margin:0 0 6px;font-size:1.05rem}
+    .service p{margin:0;color:var(--muted);font-size:0.95rem}
+
+    /* About */
+    .about{display:flex;gap:24px;align-items:center;margin-top:28px}
+    .about img{width:320px;border-radius:12px;object-fit:cover}
+
+    /* Contact */
+    .contact-grid{display:grid;grid-template-columns:1fr 380px;gap:18px;margin-top:22px}
+    .card{background:#fff;padding:18px;border-radius:12px;box-shadow:0 6px 30px rgba(15,23,36,0.04)}
+    form label{display:block;font-weight:600;margin-bottom:6px}
+    form input, form textarea, form select{width:100%;padding:10px;border-radius:8px;border:1px solid #e6edf7;margin-bottom:12px}
+    .btn{display:inline-block;padding:10px 14px;border-radius:10px;background:var(--accent);color:#fff;text-decoration:none;font-weight:700}
+
+    footer{margin-top:34px;padding:18px 0;color:var(--muted);font-size:0.95rem}
+
+    /* Responsive */
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr}
+      .services{grid-template-columns:repeat(2,1fr)}
+      .contact-grid{grid-template-columns:1fr}
+      .about{flex-direction:column}
+    }
+    @media (max-width:560px){
+      .services{grid-template-columns:1fr}
+      .brand h1{font-size:1rem}
+      h2{font-size:1.5rem}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <!-- Replace src with your logo or remove the <img> if you don't have one -->
+        <img src="https://via.placeholder.com/80x80.png?text=Logo" alt="Elite Home Appliances Care logo">
+        <div>
+          <h1>Elite Home Appliances Care</h1>
+          <div style="font-size:0.85rem;color:var(--muted)">Professional appliance repair & servicing</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a class="cta" href="#book">Book Now</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-card">
+          <span class="eyebrow">Certified Technicians</span>
+          <h2>Fast, reliable appliance repair — at your doorstep</h2>
+          <p class="lead">Elite Home Appliances Care provides professional on-site repair and maintenance for AC, Refrigerator, Washing Machine, Microwave and more. Service within 24–48 hours in most locations.</p>
+
+          <div class="features" aria-hidden>
+            <div class="feature">Same-day service (where available)</div>
+            <div class="feature">Genuine spare parts</div>
+            <div class="feature">1-year service warranty</div>
+          </div>
+
+          <div style="margin-top:18px;display:flex;gap:10px;align-items:center">
+            <a href="#contact" class="btn">Request Service</a>
+            <a class="btn" href="tel:+919876543210" style="background:#111">Call: +91 98765 43210</a>
+          </div>
+
+          <div style="margin-top:18px;color:var(--muted);font-size:0.9rem">Open: Mon–Sat, 9:00 AM — 7:00 PM</div>
+        </div>
+
+        <div>
+          <div class="card" style="text-align:center">
+            <h3 style="margin-top:0">Quick Book</h3>
+            <p style="color:var(--muted)">Fill your details and we'll call to confirm a convenient time.</p>
+            <form id="quick-book" onsubmit="handleBooking(event)">
+              <label>Name</label>
+              <input type="text" id="bk-name" placeholder="Your name" required>
+              <label>Phone</label>
+              <input type="tel" id="bk-phone" placeholder="+91 9XXXXXXXXX" required>
+              <label>Service</label>
+              <select id="bk-service">
+                <option>AC Repair</option>
+                <option>Refrigerator Repair</option>
+                <option>Washing Machine Repair</option>
+                <option>Microwave / Oven Repair</option>
+                <option>Other</option>
+              </select>
+              <button class="btn" type="submit">Submit</button>
+            </form>
+            <div id="book-msg" style="margin-top:12px;color:green;display:none">Thanks — we'll contact you shortly!</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="services" style="margin-top:26px">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <h2 style="margin:0">Our Services</h2>
+          <div style="color:var(--muted)">Expert service, transparent pricing</div>
+        </div>
+
+        <div class="services">
+          <div class="service">
+            <h3>AC Repair & Service</h3>
+            <p>Installation, gas top-up, condenser/coil cleaning, compressor replacement and preventive maintenance.</p>
+          </div>
+          <div class="service">
+            <h3>Refrigerator Repair</h3>
+            <p>Cooling issues, compressor faults, thermistor, ice maker and thermostat repairs.</p>
+          </div>
+          <div class="service">
+            <h3>Washing Machine Repair</h3>
+            <p>Drum issues, leaks, motor, heater and control board repairs for front & top load machines.</p>
+          </div>
+          <div class="service">
+            <h3>Microwave & Oven Repair</h3>
+            <p>Heating issues, door seals, control panels and magnetron replacement.</p>
+          </div>
+          <div class="service">
+            <h3>Water Heater / Geyser</h3>
+            <p>Element replacement, thermostat fixes, pressure valve and leak repairs.</p>
+          </div>
+          <div class="service">
+            <h3>Chimney & Hob Service</h3>
+            <p>Cleaning, motor & fan repairs, sensor and switch replacements.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="about">
+        <div>
+          <h2>About Elite Home Appliances Care</h2>
+          <p style="color:var(--muted)">Elite Home Appliances Care offers professional, affordable and timely repair services across a wide range of home appliances. Our technicians are trained to diagnose problems quickly and use genuine or high-quality replacement parts. Customer satisfaction and safety are our priorities.</p>
+
+          <ul style="color:var(--muted)">
+            <li>Certified & background-checked technicians</li>
+            <li>Transparent pricing & free estimates</li>
+            <li>Warranty on parts and services</li>
+          </ul>
+        </div>
+        <img src="https://images.unsplash.com/photo-1581091012184-7b6f84b4f9e8?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="technician">
+      </section>
+
+      <section id="contact" style="margin-top:26px">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <h2 style="margin:0">Contact & Location</h2>
+          <div style="color:var(--muted)">We respond quickly — try our WhatsApp support</div>
+        </div>
+
+        <div class="contact-grid">
+          <div class="card">
+            <h3 style="margin-top:0">Get in touch</h3>
+            <p style="color:var(--muted)">Call us or send a message and we'll assist you.</p>
+            <p style="margin:8px 0"><strong>Phone:</strong> <a href="tel:+919876543210">+91 98765 43210</a></p>
+            <p style="margin:8px 0"><strong>Email:</strong> <a href="mailto:info@elitehomeappliancescare.in">info@elitehomeappliancescare.in</a></p>
+            <p style="margin:8px 0"><strong>Service area:</strong> REPLACE_ME — update with your city/areas covered</p>
+
+            <h4 style="margin-top:12px">Send a message</h4>
+            <form id="contact-form" onsubmit="handleContact(event)">
+              <label>Name</label>
+              <input type="text" id="c-name" placeholder="Your name" required>
+              <label>Phone or Email</label>
+              <input type="text" id="c-contact" placeholder="Phone or email" required>
+              <label>Message</label>
+              <textarea id="c-msg" rows="4" placeholder="Describe the issue" required></textarea>
+              <button class="btn" type="submit">Send Message</button>
+            </form>
+            <div id="contact-sent" style="display:none;margin-top:12px;color:green">Thanks! We'll contact you soon.</div>
+          </div>
+
+          <div>
+            <div class="card">
+              <h4 style="margin-top:0">Book via WhatsApp</h4>
+              <p style="color:var(--muted)">Quickly send your booking details via WhatsApp.</p>
+              <a class="btn" href="https://wa.me/919876543210?text=Hello%2C%20I%20want%20to%20book%20a%20service%20for%20my%20appliance" target="_blank">Message on WhatsApp</a>
+
+              <hr style="margin:18px 0;border:none;border-top:1px solid #eef4fb">
+
+              <h4>Our location</h4>
+              <!-- Replace the src of the iframe below with your Google Maps embed link -->
+              <div style="width:100%;height:220px;border-radius:10px;overflow:hidden;margin-top:8px">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126915.123456789!2d77.1025!3d28.7041!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd...!2sNew%20Delhi!5e0!3m2!1sen!2sin!4v0000000000000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+              </div>
+            </div>
+
+            <div style="margin-top:12px;padding:12px;border-radius:10px;background:linear-gradient(180deg,#fff,#f8fbff);text-align:center">
+              <strong>Emergency Support</strong>
+              <div style="color:var(--muted)">24/7 technical help for urgent repairs (extra charges may apply)</div>
+              <div style="margin-top:10px"><a class="btn" href="tel:+919876543210">Call Now</a></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap">
+          <div>© <strong>Elite Home Appliances Care</strong> — All rights reserved</div>
+          <div style="color:var(--muted)">Designed for quick launch • Replace placeholder info with your real details</div>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    function handleBooking(e){
+      e.preventDefault();
+      document.getElementById('book-msg').style.display='block';
+      setTimeout(()=>document.getElementById('book-msg').style.display='none',4000);
+      // TODO: wire this form to an email endpoint or API (Formspree, Netlify Forms, or your backend)
+    }
+    function handleContact(e){
+      e.preventDefault();
+      document.getElementById('contact-sent').style.display='block';
+      setTimeout(()=>document.getElementById('contact-sent').style.display='none',4000);
+      // TODO: send details to your CRM, email or WhatsApp API
+    }
+  </script>
+</body>
+</html>
