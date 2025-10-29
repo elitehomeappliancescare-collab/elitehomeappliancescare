@@ -1,68 +1,63 @@
-<!--
-  Elite Home Appliances Care - Single-file website template
-  Fully updated version with full About Us content integrated.
-  Steps:
-    1. Save this file as index.html
-    2. Replace any REPLACE_ME placeholders with your details (if any remain)
-    3. Host on Netlify, Vercel, Hostinger, or GitHub Pages
--->
-
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Elite Home Appliances Care</title>
-  <meta name="description" content="Elite Home Appliances Care — professional appliance repair & service in Coimbatore and Tirupur. AC, Fridge, Washing Machine, Microwave, Geyser and more.">
+  <meta name="description" content="Elite Home Appliances Care — professional appliance repair & service. AC, Fridge, Washing Machine, Microwave and more.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --accent:#0b74e6;
+    :root {
+      --accent:#6c4ef3; /* violet theme */
       --dark:#0f1724;
       --muted:#6b7280;
       --card:#ffffff;
       --radius:14px;
       font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      color-scheme: light;
     }
     *{box-sizing:border-box}
-    body{margin:0;background:linear-gradient(180deg,#f7fbff 0%, #ffffff 100%);color:var(--dark);line-height:1.6}
+    body{margin:0;background:linear-gradient(180deg,#f7fbff 0%, #ffffff 100%);color:var(--dark);line-height:1.5}
     .container{max-width:1100px;margin:0 auto;padding:24px}
 
     header{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
     .brand{display:flex;align-items:center;gap:12px}
-    .brand img{height:56px;width:56px;object-fit:contain;border-radius:10px;background:#fff;padding:8px}
-    .brand h1{font-size:1.15rem;margin:0}
+    .brand img{height:56px;width:56px;object-fit:contain;border-radius:10px;background:#fff;padding:6px}
+    .brand h1{font-size:1.15rem;margin:0;color:var(--accent)}
     nav a{margin-left:18px;text-decoration:none;color:var(--muted);font-weight:600}
     .cta{background:var(--accent);color:#fff;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700}
 
+    /* Hero */
     .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;margin-top:18px}
-    .hero-card{background:#fff;padding:28px;border-radius:18px;box-shadow:0 6px 30px rgba(15,23,36,0.06)}
-    .eyebrow{display:inline-block;background:rgba(11,116,230,0.08);color:var(--accent);padding:6px 10px;border-radius:999px;font-weight:700;font-size:0.8rem}
+    .hero-card{background:linear-gradient(180deg,#fff,#f8fbff);padding:28px;border-radius:18px;box-shadow:0 6px 30px rgba(15,23,36,0.06)}
+    .eyebrow{display:inline-block;background:rgba(108,78,243,0.1);color:var(--accent);padding:6px 10px;border-radius:999px;font-weight:700;font-size:0.8rem}
     h2{font-size:1.9rem;margin:12px 0}
     p.lead{color:var(--muted);margin:0 0 18px}
     .features{display:flex;gap:10px;flex-wrap:wrap}
     .feature{background:#fff;padding:10px 12px;border-radius:10px;border:1px solid rgba(15,23,36,0.04);font-weight:600}
 
+    /* Services grid */
     .services{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px}
     .service{background:#fff;padding:18px;border-radius:12px;box-shadow:0 4px 18px rgba(15,23,36,0.04)}
     .service h3{margin:0 0 6px;font-size:1.05rem}
     .service p{margin:0;color:var(--muted);font-size:0.95rem}
 
-    .about{display:flex;gap:24px;align-items:flex-start;margin-top:40px}
-    .about img{width:340px;border-radius:12px;object-fit:cover}
-    .about h3{margin-top:16px;margin-bottom:6px}
-    .about ul, .about ol{margin:8px 0 12px 20px;padding:0}
+    /* About */
+    .about{display:flex;gap:24px;align-items:center;margin-top:28px}
+    .about img{width:320px;border-radius:12px;object-fit:cover}
 
+    /* Contact */
     .contact-grid{display:grid;grid-template-columns:1fr 380px;gap:18px;margin-top:22px}
     .card{background:#fff;padding:18px;border-radius:12px;box-shadow:0 6px 30px rgba(15,23,36,0.04)}
     form label{display:block;font-weight:600;margin-bottom:6px}
     form input, form textarea, form select{width:100%;padding:10px;border-radius:8px;border:1px solid #e6edf7;margin-bottom:12px}
     .btn{display:inline-block;padding:10px 14px;border-radius:10px;background:var(--accent);color:#fff;text-decoration:none;font-weight:700}
 
-    footer{margin-top:34px;padding:18px 0;color:var(--muted);font-size:0.95rem;text-align:center;border-top:1px solid #e6edf7}
+    footer{margin-top:34px;padding:18px 0;color:var(--muted);font-size:0.95rem}
 
+    /* Responsive */
     @media (max-width:980px){
       .hero{grid-template-columns:1fr}
       .services{grid-template-columns:repeat(2,1fr)}
@@ -76,11 +71,12 @@
     }
   </style>
 </head>
+
 <body>
   <div class="container">
     <header>
       <div class="brand">
-        <img src="https://via.placeholder.com/80x80.png?text=Logo" alt="Elite Home Appliances Care logo">
+        <img src="https://files.oaiusercontent.com/file_0000000096286208b447b3780e0679dd.png" alt="Elite Home Appliances Care logo">
         <div>
           <h1>Elite Home Appliances Care</h1>
           <div style="font-size:0.85rem;color:var(--muted)">Professional appliance repair & servicing</div>
@@ -95,17 +91,18 @@
     </header>
 
     <main>
-      <!-- Hero -->
       <section class="hero">
         <div class="hero-card">
           <span class="eyebrow">Certified Technicians</span>
           <h2>Fast, reliable appliance repair — at your doorstep</h2>
           <p class="lead">Elite Home Appliances Care provides professional on-site repair and maintenance for AC, Refrigerator, Washing Machine, Microwave and more. Service within 24–48 hours in most locations.</p>
+
           <div class="features">
             <div class="feature">Same-day service</div>
             <div class="feature">Genuine spare parts</div>
-            <div class="feature">1-year service warranty</div>
+            <div class="feature">1-year warranty</div>
           </div>
+
           <div style="margin-top:18px;display:flex;gap:10px;align-items:center">
             <a href="#contact" class="btn">Request Service</a>
             <a class="btn" href="tel:+919025203880" style="background:#111">Call: +91 9025203880</a>
@@ -115,7 +112,7 @@
 
         <div>
           <div class="card" style="text-align:center">
-            <h3 style="margin-top:0">Quick Book</h3>
+            <h3>Quick Book</h3>
             <p style="color:var(--muted)">Fill your details and we'll call to confirm a convenient time.</p>
             <form id="quick-book" onsubmit="handleBooking(event)">
               <label>Name</label>
@@ -137,82 +134,28 @@
         </div>
       </section>
 
-      <!-- Services -->
-      <section id="services" style="margin-top:26px">
-        <h2>Our Services</h2>
-        <div class="services">
-          <div class="service"><h3>AC Repair & Service</h3><p>Installation, gas refill, condenser cleaning, and full maintenance.</p></div>
-          <div class="service"><h3>Refrigerator Repair</h3><p>Cooling issues, compressor faults, thermistor, and thermostat repairs.</p></div>
-          <div class="service"><h3>Washing Machine Repair</h3><p>Motor, drum, drainage, and control board repairs for all brands.</p></div>
-          <div class="service"><h3>Microwave & Oven Repair</h3><p>Heating issues, control panel, and magnetron replacement.</p></div>
-          <div class="service"><h3>Water Heater / Geyser</h3><p>Thermostat fixes, heating element replacement, and leak repairs.</p></div>
-          <div class="service"><h3>Chimney & Hob Service</h3><p>Cleaning, motor service, switch replacement, and repairs.</p></div>
-        </div>
+      <section id="about" style="margin-top:40px">
+        <h2>About Elite Home Appliances Care</h2>
+        <p style="color:var(--muted)">
+          Welcome to <strong>Elite Home Appliances Care</strong> – The Trusted Home Appliance Service Experts in Coimbatore and Tirupur.
+          Is your refrigerator not cooling properly? Is your washing machine making strange noises? Don’t worry — we’re here to help!
+        </p>
+        <ul style="color:var(--muted)">
+          <li>Certified & trained technicians for all brands</li>
+          <li>Same-day doorstep service</li>
+          <li>Transparent pricing, no hidden charges</li>
+          <li>100% customer satisfaction</li>
+        </ul>
       </section>
 
-      <!-- About Us -->
-      <section id="about" class="about">
-        <div>
-          <h2>About Elite Home Appliances Care</h2>
-          <p style="color:var(--muted)">
-            Welcome to <strong>Elite Home Appliances Care</strong> – Your Trusted Home Appliance Service Experts in Coimbatore and Tirupur.
-            Whether your refrigerator isn’t cooling properly or your washing machine is making strange noises, our expert team is ready to help!
-            We provide fast, affordable, and professional service for <strong>ACs, refrigerators, washing machines, microwaves, geysers, chimneys, and hobs</strong>.
-          </p>
-
-          <h3>Why Choose Us?</h3>
-          <ul style="color:var(--muted)">
-            <li><strong>Certified & Experienced Technicians:</strong> Trained to handle all major brands including LG, Samsung, Whirlpool, IFB, Bosch, and more.</li>
-            <li><strong>Quick & Same-Day Service:</strong> Most repairs completed the same day.</li>
-            <li><strong>Transparent Pricing:</strong> No hidden costs — clear estimates before starting.</li>
-            <li><strong>Doorstep Pickup & Service:</strong> We fix at home or offer free pickup/delivery for major issues.</li>
-            <li><strong>100% Customer Satisfaction:</strong> 10,000+ happy customers across Coimbatore and Tirupur.</li>
-          </ul>
-
-          <h3>Our Key Services</h3>
-          <ul style="color:var(--muted)">
-            <li><strong>Refrigerator / Fridge Repair:</strong> Gas filling, compressor replacement, cooling and PCB issues.</li>
-            <li><strong>Washing Machine Service:</strong> Drum, motor, drainage, and power problems.</li>
-            <li><strong>AC Service & Repair:</strong> Installation, cleaning, gas refill, leakage fixes, and compressor service.</li>
-            <li><strong>Microwave, Geyser, Chimney & Hob Repair:</strong> Complete inspection and repair using genuine parts.</li>
-          </ul>
-
-          <h3>Areas We Serve</h3>
-          <p style="color:var(--muted)">
-            We proudly serve <strong>Coimbatore, Tirupur, and nearby areas</strong>, including:
-          </p>
-          <ul style="color:var(--muted)">
-            <li>Coimbatore: Saibaba Colony, Peelamedu, Gandhipuram, RS Puram, Saravanampatti, and more.</li>
-            <li>Tirupur: Avinashi Road, Dharapuram, Palladam, Kangeyam, and nearby localities.</li>
-          </ul>
-
-          <h3>Our Simple 5-Step Process</h3>
-          <ol style="color:var(--muted)">
-            <li>Call or Book Online — schedule easily.</li>
-            <li>Diagnosis — our technician inspects the issue.</li>
-            <li>Quotation — get a transparent estimate.</li>
-            <li>Repair — we fix it using genuine parts.</li>
-            <li>Post-Service Check — ensure perfect operation.</li>
-          </ol>
-
-          <p style="color:var(--muted);margin-top:12px">
-            <strong>Call us today:</strong> <a href="tel:+919025203880">+91 9025203880</a> or WhatsApp for quick service.
-          </p>
-        </div>
-
-        <img src="https://images.unsplash.com/photo-1581090700227-1e37b190418e?q=80&w=800&auto=format&fit=crop" alt="technician at work">
-      </section>
-
-      <!-- Contact -->
-      <section id="contact" style="margin-top:26px">
+      <section id="contact" style="margin-top:40px">
         <h2>Contact & Location</h2>
         <div class="contact-grid">
           <div class="card">
-            <h3 style="margin-top:0">Get in touch</h3>
-            <p style="color:var(--muted)">Call us or send a message and we'll assist you.</p>
+            <h3>Get in touch</h3>
             <p><strong>Phone:</strong> <a href="tel:+919025203880">+91 9025203880</a></p>
             <p><strong>Email:</strong> <a href="mailto:elitehomeappliancescare@gmail.com">elitehomeappliancescare@gmail.com</a></p>
-            <p><strong>Service area:</strong> Coimbatore, Tirupur & nearby</p>
+            <p><strong>Service Area:</strong> Coimbatore • Tirupur • Saravanampatti • Gandhipuram</p>
 
             <h4>Send a message</h4>
             <form id="contact-form" onsubmit="handleContact(event)">
@@ -228,25 +171,26 @@
           </div>
 
           <div>
-            <div class="card">
+            <div class="card" style="text-align:center">
               <h4>Book via WhatsApp</h4>
-              <p style="color:var(--muted)">Quickly send your booking details via WhatsApp.</p>
+              <p>Quickly send your booking details via WhatsApp.</p>
               <a class="btn" href="https://wa.me/919025203880?text=Hello%2C%20I%20want%20to%20book%20a%20service%20for%20my%20appliance" target="_blank">Message on WhatsApp</a>
 
               <hr style="margin:18px 0;border:none;border-top:1px solid #eef4fb">
 
-              <div style="margin-top:12px;padding:12px;border-radius:10px;background:linear-gradient(180deg,#fff,#f8fbff);text-align:center">
-                <strong>Emergency Support</strong>
-                <div style="color:var(--muted)">24/7 help for urgent repairs (extra charges may apply)</div>
-                <div style="margin-top:10px"><a class="btn" href="tel:+919025203880">Call Now</a></div>
-              </div>
+              <strong>Emergency Support</strong>
+              <p style="color:var(--muted)">24/7 technical help for urgent repairs</p>
+              <a class="btn" href="tel:+919025203880">Call Now</a>
             </div>
           </div>
         </div>
       </section>
 
       <footer>
-        © <strong>Elite Home Appliances Care</strong> — All rights reserved | Designed for quick launch
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap">
+          <div>© <strong>Elite Home Appliances Care</strong> — All rights reserved</div>
+          <div style="color:var(--muted)">Website by Elite Home Appliances Care</div>
+        </div>
       </footer>
     </main>
   </div>
