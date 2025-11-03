@@ -1,217 +1,257 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Elite Home Appliances Care</title>
-  <meta name="description" content="Elite Home Appliances Care — professional appliance repair & service. AC, Fridge, Washing Machine, Microwave and more.">
+  <meta name="description" content="Elite Home Appliances Care — Professional appliance repair & maintenance for AC, Refrigerator, Washing Machine, Microwave and more.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-
-  <!-- ✅ GOOGLE TAG (for Google Ads Conversion Tracking) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17687100074"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'AW-17687100074');
-  </script>
-  <!-- ✅ END GOOGLE TAG -->
-
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  
   <style>
     :root {
-      --accent:#6c4ef3; /* violet theme */
-      --dark:#0f1724;
-      --muted:#6b7280;
-      --card:#ffffff;
-      --radius:14px;
-      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-      color-scheme: light;
+      --accent: #6c4ef3;
+      --dark: #0f1724;
+      --muted: #6b7280;
+      --bg: #f7fbff;
+      --white: #fff;
+      font-family: 'Inter', sans-serif;
     }
-    *{box-sizing:border-box}
-    body{margin:0;background:linear-gradient(180deg,#f7fbff 0%, #ffffff 100%);color:var(--dark);line-height:1.5}
-    .container{max-width:1100px;margin:0 auto;padding:24px}
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--dark); line-height: 1.6; }
 
-    header{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
-    .brand{display:flex;align-items:center;gap:12px}
-    .brand img{height:56px;width:56px;object-fit:contain;border-radius:10px;background:#fff;padding:6px}
-    .brand h1{font-size:1.15rem;margin:0;color:var(--accent)}
-    nav a{margin-left:18px;text-decoration:none;color:var(--muted);font-weight:600}
-    .cta{background:var(--accent);color:#fff;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700}
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 5%;
+      background: var(--white);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      flex-wrap: wrap;
+    }
+    header img { height: 60px; width: auto; }
+    header h1 { margin: 0; font-size: 1.2rem; color: var(--accent); }
+    nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 600;
+    }
+    nav a.cta {
+      background: var(--accent);
+      color: #fff;
+      padding: 8px 14px;
+      border-radius: 8px;
+    }
 
-    /* Hero */
-    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;margin-top:18px}
-    .hero-card{background:linear-gradient(180deg,#fff,#f8fbff);padding:28px;border-radius:18px;box-shadow:0 6px 30px rgba(15,23,36,0.06)}
-    .eyebrow{display:inline-block;background:rgba(108,78,243,0.1);color:var(--accent);padding:6px 10px;border-radius:999px;font-weight:700;font-size:0.8rem}
-    h2{font-size:1.9rem;margin:12px 0}
-    p.lead{color:var(--muted);margin:0 0 18px}
-    .features{display:flex;gap:10px;flex-wrap:wrap}
-    .feature{background:#fff;padding:10px 12px;border-radius:10px;border:1px solid rgba(15,23,36,0.04);font-weight:600}
+    .container { max-width: 1100px; margin: auto; padding: 24px; }
 
-    /* Services grid */
-    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px}
-    .service{background:#fff;padding:18px;border-radius:12px;box-shadow:0 4px 18px rgba(15,23,36,0.04)}
-    .service h3{margin:0 0 6px;font-size:1.05rem}
-    .service p{margin:0;color:var(--muted);font-size:0.95rem}
+    /* Hero Section */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+      text-align: center;
+    }
+    .hero h2 { font-size: 1.8rem; margin-bottom: 10px; }
+    .hero p { color: var(--muted); }
+    .hero .btn-group {
+      margin-top: 18px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .btn {
+      background: var(--accent);
+      color: #fff;
+      padding: 10px 16px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .btn.dark { background: #111; }
+
+    /* Gallery */
+    .hero-gallery {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .hero-gallery img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 14px rgba(15,23,36,0.08);
+      object-fit: cover;
+    }
+
+    /* Services */
+    .services {
+      margin-top: 50px;
+    }
+    .services h2 {
+      text-align: center;
+      font-size: 1.6rem;
+      margin-bottom: 20px;
+    }
+    .service-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    .service {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.04);
+      text-align: center;
+    }
+    .service h3 { margin-bottom: 8px; color: var(--accent); }
 
     /* About */
-    .about{display:flex;gap:24px;align-items:center;margin-top:28px}
-    .about img{width:320px;border-radius:12px;object-fit:cover}
+    .about {
+      margin-top: 50px;
+    }
+    .about h2 { text-align: center; font-size: 1.6rem; margin-bottom: 20px; }
+    .about p { color: var(--muted); text-align: center; }
 
     /* Contact */
-    .contact-grid{display:grid;grid-template-columns:1fr 380px;gap:18px;margin-top:22px}
-    .card{background:#fff;padding:18px;border-radius:12px;box-shadow:0 6px 30px rgba(15,23,36,0.04)}
-    form label{display:block;font-weight:600;margin-bottom:6px}
-    form input, form textarea, form select{width:100%;padding:10px;border-radius:8px;border:1px solid #e6edf7;margin-bottom:12px}
-    .btn{display:inline-block;padding:10px 14px;border-radius:10px;background:var(--accent);color:#fff;text-decoration:none;font-weight:700}
+    .contact {
+      margin-top: 50px;
+    }
+    .contact h2 { text-align: center; font-size: 1.6rem; margin-bottom: 20px; }
+    form {
+      max-width: 500px;
+      margin: auto;
+      background: var(--white);
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.05);
+    }
+    label { display: block; margin-bottom: 5px; font-weight: 600; }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      margin-bottom: 12px;
+    }
 
-    footer{margin-top:34px;padding:18px 0;color:var(--muted);font-size:0.95rem}
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-top: 40px;
+      padding: 20px;
+      border-top: 1px solid #e5e7eb;
+    }
 
-   /* ✅ Desktop enhancement (only add columns on wide screens) */
-    @media (min-width:981px){
-      .hero{display:grid;grid-template-columns:1fr 420px;align-items:center}
-      .services{grid-template-columns:repeat(3,1fr)}
-      .contact-grid{display:grid;grid-template-columns:1fr 380px}
-      .about{flex-direction:row}
+    /* Responsive */
+    @media (min-width: 768px) {
+      .hero { flex-direction: row; text-align: left; justify-content: space-between; }
+      .hero-gallery { flex-direction: row; }
+      .hero-gallery img { width: 32%; }
+      .service-grid { grid-template-columns: repeat(3, 1fr); }
     }
   </style>
 </head>
-
-
 <body>
+  <header>
+    <div class="brand">
+      <img src="images/logo.png" alt="Elite Home Appliances Care logo">
+    </div>
+    <h1>Elite Home Appliances Care</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact" class="cta">Contact</a>
+    </nav>
+  </header>
+
   <div class="container">
-    <header>
-      <div class="brand">
-        <img src="https://files.oaiusercontent.com/file_0000000096286208b447b3780e0679dd.png" alt="Elite Home Appliances Care logo">
-        <div>
-          <h1>Elite Home Appliances Care</h1>
-          <div style="font-size:0.85rem;color:var(--muted)">Professional appliance repair & servicing</div>
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div>
+        <h2>Fast, Reliable Appliance Repair — At Your Doorstep</h2>
+        <p>We provide on-site repair for ACs, refrigerators, washing machines, and microwaves. Certified technicians and same-day service available.</p>
+        <div class="btn-group">
+          <a href="#contact" class="btn">Request Service</a>
+          <a href="tel:+919025203880" class="btn dark">Call: +91 9025203880</a>
         </div>
       </div>
-      <nav>
-        <a href="#services">Services</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-        <a class="cta" href="#book">Book Now</a>
-      </nav>
-    </header>
+      <div class="hero-gallery">
+        <img src="images/repair1.jpeg" alt="Technician repairing washing machine">
+        <img src="images/repair2.jpeg" alt="Appliance repair expert">
+        <img src="images/repair3.jpeg" alt="Washer service in progress">
+      </div>
+    </section>
 
-    <main>
-      <section class="hero">
-        <div class="hero-card">
-          <span class="eyebrow">Certified Technicians</span>
-          <h2>Fast, reliable appliance repair — at your doorstep</h2>
-          <p class="lead">Elite Home Appliances Care provides professional on-site repair and maintenance for AC, Refrigerator, Washing Machine, Microwave and more. Service within 24–48 hours in most locations.</p>
-
-          <div class="features">
-            <div class="feature">Same-day service</div>
-            <div class="feature">Genuine spare parts</div>
-            <div class="feature">1-year warranty</div>
-          </div>
-
-          <div style="margin-top:18px;display:flex;gap:10px;align-items:center">
-            <a href="#contact" class="btn">Request Service</a>
-            <a class="btn" href="tel:+919025203880" style="background:#111">Call: +91 9025203880</a>
-          </div>
-          <div style="margin-top:18px;color:var(--muted);font-size:0.9rem">Open: Mon–Sat, 9:00 AM — 7:00 PM</div>
+    <!-- SERVICES -->
+    <section class="services" id="services">
+      <h2>Our Services</h2>
+      <div class="service-grid">
+        <div class="service">
+          <h3>Refrigerator Repair</h3>
+          <p>Fix cooling, gas filling, and compressor issues for all brands.</p>
         </div>
-
-        <div>
-          <div class="card" style="text-align:center">
-            <h3>Quick Book</h3>
-            <p style="color:var(--muted)">Fill your details and we'll call to confirm a convenient time.</p>
-            <form id="quick-book" onsubmit="handleBooking(event)">
-              <label>Name</label>
-              <input type="text" id="bk-name" placeholder="Your name" required>
-              <label>Phone</label>
-              <input type="tel" id="bk-phone" placeholder="+91 9XXXXXXXXX" required>
-              <label>Service</label>
-              <select id="bk-service">
-                <option>AC Repair</option>
-                <option>Refrigerator Repair</option>
-                <option>Washing Machine Repair</option>
-                <option>Microwave / Oven Repair</option>
-                <option>Other</option>
-              </select>
-              <button class="btn" type="submit">Submit</button>
-            </form>
-            <div id="book-msg" style="margin-top:12px;color:green;display:none">Thanks — we'll contact you shortly!</div>
-          </div>
+        <div class="service">
+          <h3>Washing Machine Repair</h3>
+          <p>Front & top load washing machine services, spin and motor issues handled.</p>
         </div>
-      </section>
-
-      <section id="about" style="margin-top:40px">
-        <h2>About Elite Home Appliances Care</h2>
-        <p style="color:var(--muted)">
-          Welcome to <strong>Elite Home Appliances Care</strong> – The Trusted Home Appliance Service Experts in Coimbatore and Tirupur.
-          Is your refrigerator not cooling properly? Is your washing machine making strange noises? Don’t worry — we’re here to help!
-        </p>
-        <ul style="color:var(--muted)">
-          <li>Certified & trained technicians for all brands</li>
-          <li>Same-day doorstep service</li>
-          <li>Transparent pricing, no hidden charges</li>
-          <li>100% customer satisfaction</li>
-        </ul>
-      </section>
-
-      <section id="contact" style="margin-top:40px">
-        <h2>Contact & Location</h2>
-        <div class="contact-grid">
-          <div class="card">
-            <h3>Get in touch</h3>
-            <p><strong>Phone:</strong> <a href="tel:+919025203880">+91 9025203880</a></p>
-            <p><strong>Email:</strong> <a href="mailto:elitehomeappliancescare@gmail.com">elitehomeappliancescare@gmail.com</a></p>
-            <p><strong>Service Area:</strong> Coimbatore • Tirupur • Saravanampatti • Gandhipuram</p>
-
-            <h4>Send a message</h4>
-            <form id="contact-form" onsubmit="handleContact(event)">
-              <label>Name</label>
-              <input type="text" id="c-name" placeholder="Your name" required>
-              <label>Phone or Email</label>
-              <input type="text" id="c-contact" placeholder="Phone or email" required>
-              <label>Message</label>
-              <textarea id="c-msg" rows="4" placeholder="Describe the issue" required></textarea>
-              <button class="btn" type="submit">Send Message</button>
-            </form>
-            <div id="contact-sent" style="display:none;margin-top:12px;color:green">Thanks! We'll contact you soon.</div>
-          </div>
-
-          <div>
-            <div class="card" style="text-align:center">
-              <h4>Book via WhatsApp</h4>
-              <p>Quickly send your booking details via WhatsApp.</p>
-              <a class="btn" href="https://wa.me/919025203880?text=Hello%2C%20I%20want%20to%20book%20a%20service%20for%20my%20appliance" target="_blank">Message on WhatsApp</a>
-
-              <hr style="margin:18px 0;border:none;border-top:1px solid #eef4fb">
-
-              <strong>Emergency Support</strong>
-              <p style="color:var(--muted)">24/7 technical help for urgent repairs</p>
-              <a class="btn" href="tel:+919025203880">Call Now</a>
-            </div>
-          </div>
+        <div class="service">
+          <h3>Air Conditioner Service</h3>
+          <p>Comprehensive AC service, installation, and gas refilling by experts.</p>
         </div>
-      </section>
-
-      <footer>
-        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap">
-          <div>© <strong>Elite Home Appliances Care</strong> — All rights reserved</div>
-          <div style="color:var(--muted)">Website by Elite Home Appliances Care</div>
+        <div class="service">
+          <h3>Microwave Oven Repair</h3>
+          <p>Heating, display, and door switch repair for solo & convection models.</p>
         </div>
-      </footer>
-    </main>
+        <div class="service">
+          <h3>Water Purifier Service</h3>
+          <p>RO and UV system cleaning, filter replacement and AMC plans.</p>
+        </div>
+        <div class="service">
+          <h3>Installation & Maintenance</h3>
+          <p>Appliance setup, preventive maintenance, and annual servicing.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+      <h2>About Us</h2>
+      <p>Elite Home Appliances Care is a trusted service provider in Coimbatore & Tirupur. We specialize in fast, reliable appliance repair with transparent pricing and certified technicians. Our goal is 100% customer satisfaction with every service call.</p>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+      <h2>Contact Us</h2>
+      <form onsubmit="handleSubmit(event)">
+        <label for="name">Name</label>
+        <input type="text" id="name" required>
+        <label for="phone">Phone</label>
+        <input type="text" id="phone" required>
+        <label for="message">Message</label>
+        <textarea id="message" rows="4" required></textarea>
+        <button class="btn" type="submit">Send Message</button>
+      </form>
+      <p style="text-align:center;margin-top:10px;">Or reach us at <a href="mailto:elitehomeappliancescare@gmail.com">elitehomeappliancescare@gmail.com</a></p>
+    </section>
   </div>
 
+  <footer>
+    © 2025 Elite Home Appliances Care — All rights reserved.
+  </footer>
+
   <script>
-    function handleBooking(e){
+    function handleSubmit(e) {
       e.preventDefault();
-      document.getElementById('book-msg').style.display='block';
-      setTimeout(()=>document.getElementById('book-msg').style.display='none',4000);
-    }
-    function handleContact(e){
-      e.preventDefault();
-      document.getElementById('contact-sent').style.display='block';
-      setTimeout(()=>document.getElementById('contact-sent').style.display='none',4000);
+      alert('Thank you! We will contact you soon.');
+      e.target.reset();
     }
   </script>
 </body>
