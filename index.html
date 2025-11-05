@@ -8,8 +8,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-
-  <!-- ✅ Google tag (gtag.js) -->
+  
+  <!-- Google Tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17687100074"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -53,6 +53,14 @@
       padding: 8px 14px;
       border-radius: 8px;
     }
+    .call-header {
+      background: #6c4ef3;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+    }
 
     .container { max-width: 1100px; margin: auto; padding: 24px; }
 
@@ -80,9 +88,7 @@
       border-radius: 8px;
       text-decoration: none;
       font-weight: 600;
-      transition: background 0.3s;
     }
-    .btn:hover { background: #5940d4; }
     .btn.dark { background: #111; }
 
     /* Gallery */
@@ -100,9 +106,7 @@
     }
 
     /* Services */
-    .services {
-      margin-top: 50px;
-    }
+    .services { margin-top: 50px; }
     .services h2 {
       text-align: center;
       font-size: 1.6rem;
@@ -123,16 +127,12 @@
     .service h3 { margin-bottom: 8px; color: var(--accent); }
 
     /* About */
-    .about {
-      margin-top: 50px;
-    }
+    .about { margin-top: 50px; }
     .about h2 { text-align: center; font-size: 1.6rem; margin-bottom: 20px; }
     .about p { color: var(--muted); text-align: center; }
 
     /* Contact */
-    .contact {
-      margin-top: 50px;
-    }
+    .contact { margin-top: 50px; }
     .contact h2 { text-align: center; font-size: 1.6rem; margin-bottom: 20px; }
     form {
       max-width: 500px;
@@ -160,6 +160,36 @@
       border-top: 1px solid #e5e7eb;
     }
 
+    /* Sticky Buttons */
+    .sticky-call {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #6c4ef3;
+      color: white;
+      font-weight: bold;
+      font-size: 16px;
+      padding: 12px 18px;
+      border-radius: 50px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      text-decoration: none;
+      z-index: 9999;
+    }
+    .sticky-whatsapp {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background: #25D366;
+      color: white;
+      font-weight: bold;
+      font-size: 16px;
+      padding: 12px 18px;
+      border-radius: 50px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      text-decoration: none;
+      z-index: 9999;
+    }
+
     /* Responsive */
     @media (min-width: 768px) {
       .hero { flex-direction: row; text-align: left; justify-content: space-between; }
@@ -169,6 +199,7 @@
     }
   </style>
 </head>
+
 <body>
   <header>
     <div class="brand">
@@ -180,6 +211,7 @@
       <a href="#services">Services</a>
       <a href="#about">About</a>
       <a href="#contact" class="cta">Contact</a>
+      <a href="tel:+919025203880" class="call-header">📞 Call Now</a>
     </nav>
   </header>
 
@@ -190,10 +222,8 @@
         <h2>Fast, Reliable Appliance Repair — At Your Doorstep</h2>
         <p>We provide on-site repair for ACs, refrigerators, washing machines, and microwaves. Certified technicians and same-day service available.</p>
         <div class="btn-group">
-          <a href="#contact" class="btn">Request Service</a>
-          <a href="tel:+919025203880" class="btn dark" onclick="return gtag_report_conversion('tel:+919025203880');">
-            Call: +91 9025203880
-          </a>
+          <a href="tel:+919025203880" class="btn dark">📞 Call Now for Fast Service</a>
+          <a href="#contact" class="btn">Request Service Online</a>
         </div>
       </div>
       <div class="hero-gallery">
@@ -207,30 +237,12 @@
     <section class="services" id="services">
       <h2>Our Services</h2>
       <div class="service-grid">
-        <div class="service">
-          <h3>Refrigerator Repair</h3>
-          <p>Fix cooling, gas filling, and compressor issues for all brands.</p>
-        </div>
-        <div class="service">
-          <h3>Washing Machine Repair</h3>
-          <p>Front & top load washing machine services, spin and motor issues handled.</p>
-        </div>
-        <div class="service">
-          <h3>Air Conditioner Service</h3>
-          <p>Comprehensive AC service, installation, and gas refilling by experts.</p>
-        </div>
-        <div class="service">
-          <h3>Microwave Oven Repair</h3>
-          <p>Heating, display, and door switch repair for solo & convection models.</p>
-        </div>
-        <div class="service">
-          <h3>Water Purifier Service</h3>
-          <p>RO and UV system cleaning, filter replacement and AMC plans.</p>
-        </div>
-        <div class="service">
-          <h3>Installation & Maintenance</h3>
-          <p>Appliance setup, preventive maintenance, and annual servicing.</p>
-        </div>
+        <div class="service"><h3>Refrigerator Repair</h3><p>Fix cooling, gas filling, and compressor issues for all brands.</p></div>
+        <div class="service"><h3>Washing Machine Repair</h3><p>Front & top load washing machine services, spin and motor issues handled.</p></div>
+        <div class="service"><h3>Air Conditioner Service</h3><p>Comprehensive AC service, installation, and gas refilling by experts.</p></div>
+        <div class="service"><h3>Microwave Oven Repair</h3><p>Heating, display, and door switch repair for solo & convection models.</p></div>
+        <div class="service"><h3>Water Purifier Service</h3><p>RO and UV system cleaning, filter replacement and AMC plans.</p></div>
+        <div class="service"><h3>Installation & Maintenance</h3><p>Appliance setup, preventive maintenance, and annual servicing.</p></div>
       </div>
     </section>
 
@@ -243,19 +255,19 @@
     <!-- CONTACT -->
     <section class="contact" id="contact">
       <h2>Contact Us</h2>
-      <form action="https://formspree.io/f/xzzknpey" method="POST" id="contactForm">
+      <form action="https://formspree.io/f/xzzknpey" method="POST">
         <label for="name">Name</label>
-        <input type="text" name="name" id="name" required>
-
+        <input type="text" id="name" name="name" required>
         <label for="phone">Phone</label>
-        <input type="text" name="phone" id="phone" required>
-
+        <input type="text" id="phone" name="phone" required>
         <label for="message">Message</label>
-        <textarea name="message" id="message" rows="4" required></textarea>
-
+        <textarea id="message" name="message" rows="4" required></textarea>
         <button class="btn" type="submit">Send Message</button>
       </form>
-      <p style="text-align:center;margin-top:10px;">Or reach us at <a href="mailto:elitehomeappliancescare@gmail.com">elitehomeappliancescare@gmail.com</a></p>
+      <p style="text-align:center;margin-top:10px;">Call us directly at 
+        <a href="tel:+919025203880" style="color:#6c4ef3;font-weight:600;">+91 9025203880</a><br>
+        or email us at <a href="mailto:elitehomeappliancescare@gmail.com">elitehomeappliancescare@gmail.com</a>
+      </p>
     </section>
   </div>
 
@@ -263,35 +275,8 @@
     © 2025 Elite Home Appliances Care — All rights reserved.
   </footer>
 
-  <script>
-    // ✅ Handle Form Submission + Google Conversion
-    document.getElementById("contactForm").addEventListener("submit", async function(e){
-      e.preventDefault();
-      const form = e.target;
-      const data = new FormData(form);
-      await fetch(form.action, {
-        method: form.method,
-        body: data,
-        headers: { 'Accept': 'application/json' }
-      });
-      alert("✅ Thank you! Your message has been sent.");
-      gtag('event', 'conversion', {'send_to': 'AW-17687100074'});
-      form.reset();
-    });
-
-    // ✅ Track Calls as Conversions
-    function gtag_report_conversion(url) {
-      var callback = function () {
-        if (typeof(url) != 'undefined') {
-          window.location = url;
-        }
-      };
-      gtag('event', 'conversion', {
-          'send_to': 'AW-17687100074',
-          'event_callback': callback
-      });
-      return false;
-    }
-  </script>
+  <!-- Sticky Buttons -->
+  <a href="tel:+919025203880" class="sticky-call">📞 Call Now</a>
+  <a href="https://wa.me/919025203880" class="sticky-whatsapp">💬 WhatsApp</a>
 </body>
 </html>
