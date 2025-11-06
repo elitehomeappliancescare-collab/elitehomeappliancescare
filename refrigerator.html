@@ -82,7 +82,6 @@ nav a.cta {
   color:var(--accent);
   margin-left:auto;
 }
-
 @media(max-width:768px){
   nav {
     display:none;
@@ -106,7 +105,6 @@ nav a.cta {
   .menu-toggle {display:block;}
   header {flex-wrap:nowrap;}
 }
-
 @keyframes slideDown {
   from {opacity:0;transform:translateY(-10px);}
   to {opacity:1;transform:translateY(0);}
@@ -121,12 +119,14 @@ nav a.cta {
   color:white;
   text-align:center;
   padding:10px 0;
-  font-weight:600;
-  font-size:1.1rem;
 }
 .fixed-call a {
+  display:inline-block;
   color:white;
   text-decoration:none;
+  font-weight:600;
+  font-size:1rem;
+  letter-spacing:0.5px;
 }
 
 /* SECTION */
@@ -212,9 +212,9 @@ footer {
   </nav>
 </header>
 
-<!-- Fixed Call Button Below Header -->
+<!-- Fixed Call Now Button Below Header -->
 <div class="fixed-call">
-  📞 <a href="tel:+919025203880">Call Now: +91 9025203880</a>
+  <a href="tel:+919025203880">📞 Call Now</a>
 </div>
 
 <section id="refrigerator">
@@ -244,8 +244,8 @@ footer {
 </footer>
 
 <!-- Floating Buttons -->
-<a href="tel:+919025203880" class="sticky-call">📞 Call</a>
-<a href="https://wa.me/919025203880" class="sticky-whatsapp">💬 WhatsApp</a>
+<a href="tel:+919025203880" class="sticky-call">📞</a>
+<a href="https://wa.me/919025203880" class="sticky-whatsapp">💬</a>
 
 <script>
 // Mobile menu toggle
