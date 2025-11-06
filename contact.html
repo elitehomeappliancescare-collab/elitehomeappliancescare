@@ -9,13 +9,13 @@
 
 <style>
 :root {
-  --accent:#6c4ef3;
-  --green:#16a34a;
-  --dark:#0f1724;
-  --muted:#6b7280;
-  --bg:#f7fbff;
-  --white:#fff;
-  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+  --accent: #1E90FF;     /* Primary Blue */
+  --green: #00C49A;      /* Aqua Green */
+  --dark: #0A2540;       /* Deep Navy */
+  --muted: #6B7280;      /* Neutral Gray */
+  --bg: #F0F8FF;         /* Light Blue Background */
+  --white: #FFFFFF;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
 }
 *{box-sizing:border-box;margin:0;padding:0;}
 body{background:var(--bg);color:var(--dark);line-height:1.6;margin:0;}
@@ -66,7 +66,9 @@ nav a.cta {
   color:#fff;
   padding:8px 14px;
   border-radius:8px;
+  transition:background 0.3s;
 }
+nav a.cta:hover {background:#0B74DA;}
 
 /* MOBILE MENU */
 @media (max-width:768px) {
@@ -119,6 +121,7 @@ label {
   display:block;
   margin-bottom:6px;
   font-weight:600;
+  color:var(--dark);
 }
 input,textarea {
   width:100%;
@@ -126,6 +129,7 @@ input,textarea {
   border:1px solid #e5e7eb;
   border-radius:8px;
   margin-bottom:12px;
+  font-size:1rem;
 }
 button.btn {
   background:var(--accent);
@@ -136,7 +140,9 @@ button.btn {
   font-weight:600;
   cursor:pointer;
   width:100%;
+  transition:background 0.3s;
 }
+button.btn:hover {background:#0B74DA;}
 
 /* FOOTER */
 footer {
@@ -194,7 +200,7 @@ body{animation:fadeInUp 0.6s ease-out forwards;}
     <a href="ac.html">AC Service</a>
     <a href="refrigerator.html">Refrigerator</a>
     <a href="washing.html">Washing Machine</a>
-    <a href="contact.html" class="cta">Contact</a>
+    <a href="contact.html" class="cta active">Contact</a>
   </nav>
 </header>
 
