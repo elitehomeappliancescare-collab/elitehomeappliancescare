@@ -18,90 +18,78 @@
   font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
 }
 *{box-sizing:border-box;margin:0;padding:0;}
-body {
-  margin:0;
-  background:var(--bg);
-  color:var(--dark);
-  line-height:1.6;
-  opacity:0;
-  transform:translateY(10px);
-  animation:fadeInUp 0.5s ease-out forwards;
-  overflow-x:hidden;
-}
+body{background:var(--bg);color:var(--dark);line-height:1.6;}
 
 /* HEADER */
 header {
   position:sticky;
   top:0;
   z-index:1000;
-  background:var(--white);
-  box-shadow:0 2px 10px rgba(0,0,0,0.05);
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:10px 5%;
+  padding:8px 4%;
+  background:var(--white);
+  box-shadow:0 2px 10px rgba(0,0,0,0.05);
 }
-.brand img {height:45px;}
+header .brand img {height:44px;}
 header h1 {
   font-size:1rem;
   color:var(--accent);
-  margin:0 10px;
-  flex:1 1 auto;
+  flex:1;
+  text-align:center;
+}
+.menu-toggle {
+  background:none;
+  border:none;
+  font-size:26px;
+  cursor:pointer;
+  color:var(--dark);
+  display:none;
 }
 
 /* NAVIGATION */
 nav {
   display:flex;
-  gap:10px;
-  align-items:center;
+  gap:14px;
 }
 nav a {
   text-decoration:none;
   color:var(--dark);
   font-weight:600;
-  padding:6px 10px;
-  border-bottom:2px solid transparent;
-  transition:all 0.3s ease;
+  padding:8px;
+  border-radius:6px;
 }
-nav a.active {
-  color:var(--accent);
-  border-bottom:2px solid var(--accent);
-}
+nav a.active {color:var(--accent);}
 nav a.cta {
   background:var(--accent);
   color:#fff;
   padding:8px 14px;
   border-radius:8px;
-  border:none;
 }
 
 /* MOBILE MENU */
-.menu-toggle {
-  display:none;
-  font-size:1.8rem;
-  cursor:pointer;
-  background:none;
-  border:none;
-  color:var(--accent);
-}
-@media(max-width:768px){
-  nav {
-    display:none;
-    flex-direction:column;
-    width:100%;
-    text-align:center;
-    background:var(--white);
-    border-top:1px solid #eee;
-    padding:10px 0;
-    position:absolute;
-    top:65px;
-    left:0;
-  }
-  nav.active {display:flex;}
+@media (max-width:768px) {
   .menu-toggle {display:block;}
+  nav {
+    position:fixed;
+    top:58px;
+    left:0;
+    width:100%;
+    background:var(--white);
+    flex-direction:column;
+    align-items:center;
+    gap:10px;
+    padding:12px 0;
+    box-shadow:0 4px 12px rgba(0,0,0,0.1);
+    max-height:0;
+    overflow:hidden;
+    transition:max-height 0.3s ease;
+  }
+  nav.open {max-height:240px;}
 }
 
-/* CALL NOW BUTTON BELOW HEADER */
+/* TOP CALL NOW BUTTON */
 .top-call-btn {
   display:block;
   background:var(--green);
@@ -111,10 +99,10 @@ nav a.cta {
   padding:10px 0;
   text-decoration:none;
   font-size:1rem;
-  box-shadow:0 2px 6px rgba(0,0,0,0.15);
   position:sticky;
-  top:65px;
+  top:58px;
   z-index:900;
+  box-shadow:0 2px 6px rgba(0,0,0,0.15);
 }
 
 /* SECTION */
@@ -122,42 +110,64 @@ section {
   padding:48px 20px;
   max-width:1100px;
   margin:auto;
-}
-h2 {
-  font-size:1.6rem;
-  color:var(--accent);
   text-align:center;
-  margin-bottom:10px;
 }
-p {text-align:center;color:var(--muted);}
+h2 {font-size:1.6rem;color:var(--accent);}
+p {color:var(--muted);margin:10px auto 20px;}
+
+/* IMAGE ANIMATION */
+.service-image {
+  width:100%;
+  max-width:600px;
+  height:auto;
+  border-radius:12px;
+  margin:20px auto;
+  display:block;
+  transform:translateY(20px);
+  opacity:0;
+  transition:transform 0.6s ease, opacity 0.6s ease;
+}
+.service-image.visible {
+  transform:translateY(0);
+  opacity:1;
+}
+
+/* SERVICE SECTION */
 .service-section {
   background:var(--white);
   border-radius:12px;
   padding:26px;
   margin-top:20px;
   box-shadow:0 4px 18px rgba(0,0,0,0.05);
-}
-ul {
-  max-width:800px;
-  margin:10px auto 0 20px;
   text-align:left;
 }
+.service-section h3 {color:var(--dark);}
+ul {
+  max-width:800px;
+  margin:10px auto 0;
+  padding-left:20px;
+}
+
+/* BUTTONS */
 .btn {
-  font-size:0.95rem;
-  padding:8px 14px;
+  background:var(--accent);
+  color:#fff;
+  padding:10px 16px;
   border-radius:8px;
   text-decoration:none;
   font-weight:600;
   display:inline-block;
-  margin:6px;
+  transition:background 0.3s;
 }
-.call-btn {
-  background:var(--green);
-  color:#fff;
-}
-.request-btn {
-  background:var(--accent);
-  color:#fff;
+.btn:hover {background:#5840d6;}
+.btn.dark {background:var(--green);}
+.btn.dark:hover {background:#128a3d;}
+.call-buttons {
+  margin-top:25px;
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:12px;
 }
 
 /* FOOTER */
@@ -170,40 +180,35 @@ footer {
   background:var(--white);
 }
 
-/* FLOATING BUTTONS (ALWAYS FIXED WHILE SCROLLING) */
-.float-btn {
+/* FIXED FLOATING BUTTONS */
+.floating-buttons {
   position:fixed;
   bottom:20px;
-  width:50px;
-  height:50px;
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  padding:0 20px;
+  z-index:9999;
+}
+.floating-buttons a {
+  width:52px;
+  height:52px;
   border-radius:50%;
   display:flex;
   align-items:center;
   justify-content:center;
-  color:#fff;
+  color:white;
   font-size:22px;
-  box-shadow:0 4px 10px rgba(0,0,0,0.25);
-  z-index:9999;
   text-decoration:none;
+  box-shadow:0 4px 8px rgba(0,0,0,0.25);
 }
-.float-call {
-  right:20px;
-  background:var(--accent);
-}
-.float-whatsapp {
-  left:20px;
-  background:#25D366;
-}
-
-/* ANIMATIONS */
-@keyframes fadeInUp {
-  to { opacity:1; transform:translateY(0); }
-}
-.fade-out {opacity:0;transition:opacity 0.4s ease;}
+.floating-buttons .whatsapp {background:#25D366;}
+.floating-buttons .call {background:var(--green);}
 </style>
 </head>
 
 <body>
+
 <header>
   <div class="brand"><img src="images/logo.png" alt="Elite Home Appliances Care"></div>
   <h1>Elite Home Appliances Care</h1>
@@ -217,12 +222,15 @@ footer {
   </nav>
 </header>
 
-<!-- Always visible call now button -->
+<!-- Sticky Call Button -->
 <a href="tel:+919025203880" class="top-call-btn">📞 Call Now</a>
 
 <section id="refrigerator">
   <h2>Refrigerator Repair in Coimbatore</h2>
   <p>We repair all fridge types — single door, double door, side-by-side and inverter models. Quick diagnostics and genuine spare parts.</p>
+
+  <img src="images/fridge.jpg" alt="Refrigerator Repair Service" class="service-image">
+
   <div class="service-section">
     <h3>Common Issues We Fix</h3>
     <ul>
@@ -232,29 +240,35 @@ footer {
       <li>Door gasket & thermostat repair</li>
       <li>Noise or vibration troubleshooting</li>
     </ul>
-    <h3>Brands We Handle</h3>
+
+    <h3 style="margin-top:20px;">Brands We Handle</h3>
     <p>Samsung, LG, Whirlpool, Haier, Godrej, Bosch, Panasonic, Siemens & more.</p>
-    <div style="text-align:center;margin-top:20px;">
-      <a href="tel:+919025203880" class="btn call-btn">📞 Call for Fridge Repair</a>
-      <a href="contact.html" class="btn request-btn">Request Service</a>
+
+    <div class="call-buttons">
+      <a href="tel:+919025203880" class="btn dark">📞 Call for Fridge Repair</a>
+      <a href="contact.html" class="btn">Request Service</a>
     </div>
   </div>
 </section>
 
 <footer>
-  © 2025 Elite Home Appliances Care — All Rights Reserved. &nbsp;|&nbsp; 
+  © 2025 Elite Home Appliances Care — All Rights Reserved. | 
   Call: <a href="tel:+919025203880">+91 9025203880</a>
 </footer>
 
-<!-- Floating WhatsApp & Call Icons -->
-<a href="https://wa.me/919025203880" class="float-btn float-whatsapp" aria-label="Chat on WhatsApp">💬</a>
-<a href="tel:+919025203880" class="float-btn float-call" aria-label="Call Now">📞</a>
+<!-- Floating WhatsApp & Call Buttons -->
+<div class="floating-buttons">
+  <a href="https://wa.me/919025203880" class="whatsapp" title="Chat on WhatsApp">💬</a>
+  <a href="tel:+919025203880" class="call" title="Call Now">📞</a>
+</div>
 
 <script>
 // Mobile menu toggle
-const toggle = document.querySelector('.menu-toggle');
+const menuToggle = document.querySelector('.menu-toggle');
 const nav = document.querySelector('nav');
-toggle.addEventListener('click', () => nav.classList.toggle('active'));
+menuToggle.addEventListener('click', () => {
+  nav.classList.toggle('open');
+});
 
 // Highlight current page
 const currentPage = window.location.pathname.split("/").pop();
@@ -264,19 +278,16 @@ document.querySelectorAll('nav a').forEach(link=>{
   }
 });
 
-// Smooth fade-out transition
-document.querySelectorAll('a[href]').forEach(link => {
-  if (link.hostname === window.location.hostname) {
-    link.addEventListener('click', function (e) {
-      const href = link.getAttribute('href');
-      if (!href.startsWith('#') && !href.startsWith('mailto') && !href.startsWith('tel')) {
-        e.preventDefault();
-        document.body.classList.add('fade-out');
-        setTimeout(() => { window.location = href; }, 400);
-      }
-    });
-  }
-});
+// Image animation on scroll
+const img = document.querySelector('.service-image');
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+    }
+  });
+},{threshold:0.3});
+observer.observe(img);
 </script>
 </body>
 </html>
