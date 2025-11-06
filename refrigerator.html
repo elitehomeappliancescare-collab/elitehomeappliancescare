@@ -18,7 +18,7 @@
   font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
 }
 *{box-sizing:border-box;margin:0;padding:0;}
-body{background:var(--bg);color:var(--dark);line-height:1.6;}
+body{background:var(--bg);color:var(--dark);line-height:1.6;margin:0;}
 
 /* HEADER */
 header {
@@ -87,22 +87,6 @@ nav a.cta {
     transition:max-height 0.3s ease;
   }
   nav.open {max-height:240px;}
-}
-
-/* TOP CALL NOW BUTTON */
-.top-call-btn {
-  display:block;
-  background:var(--green);
-  color:#fff;
-  text-align:center;
-  font-weight:700;
-  padding:10px 0;
-  text-decoration:none;
-  font-size:1rem;
-  position:sticky;
-  top:58px;
-  z-index:900;
-  box-shadow:0 2px 6px rgba(0,0,0,0.15);
 }
 
 /* SECTION */
@@ -222,12 +206,9 @@ footer {
   </nav>
 </header>
 
-<!-- Sticky Call Button -->
-<a href="tel:+919025203880" class="top-call-btn">📞 Call Now</a>
-
 <section id="refrigerator">
   <h2>Refrigerator Repair in Coimbatore</h2>
-  <p>We repair all fridge types — single door, double door, side-by-side and inverter models. Quick diagnostics and genuine spare parts.</p>
+  <p>We repair all types of refrigerators — single door, double door, side-by-side, and inverter models with genuine parts and expert technicians.</p>
 
   <img src="images/fridge.jpg" alt="Refrigerator Repair Service" class="service-image">
 
@@ -235,9 +216,9 @@ footer {
     <h3>Common Issues We Fix</h3>
     <ul>
       <li>Fridge not cooling or overcooling</li>
-      <li>Compressor faults & gas refill</li>
+      <li>Compressor faults & gas refilling</li>
       <li>Defrosting and water leakage problems</li>
-      <li>Door gasket & thermostat repair</li>
+      <li>Door gasket & thermostat issues</li>
       <li>Noise or vibration troubleshooting</li>
     </ul>
 
@@ -245,7 +226,7 @@ footer {
     <p>Samsung, LG, Whirlpool, Haier, Godrej, Bosch, Panasonic, Siemens & more.</p>
 
     <div class="call-buttons">
-      <a href="tel:+919025203880" class="btn dark">📞 Call for Fridge Repair</a>
+      <a href="tel:+919025203880" class="btn dark">📞 Call for Refrigerator Repair</a>
       <a href="contact.html" class="btn">Request Service</a>
     </div>
   </div>
@@ -256,7 +237,7 @@ footer {
   Call: <a href="tel:+919025203880">+91 9025203880</a>
 </footer>
 
-<!-- Floating WhatsApp & Call Buttons -->
+<!-- Fixed Floating Buttons -->
 <div class="floating-buttons">
   <a href="https://wa.me/919025203880" class="whatsapp" title="Chat on WhatsApp">💬</a>
   <a href="tel:+919025203880" class="call" title="Call Now">📞</a>
