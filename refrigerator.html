@@ -10,6 +10,7 @@
 <style>
 :root {
   --accent:#6c4ef3;
+  --green:#16a34a;
   --dark:#0f1724;
   --muted:#6b7280;
   --bg:#f7fbff;
@@ -18,6 +19,7 @@
 }
 *{box-sizing:border-box;margin:0;padding:0;}
 body {
+  margin:0;
   background:var(--bg);
   color:var(--dark);
   line-height:1.6;
@@ -37,27 +39,29 @@ header {
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:10px 16px;
+  padding:10px 5%;
 }
-.brand img {height:42px;}
-header h1 {font-size:1rem;color:var(--accent);margin-left:8px;flex:1;}
+.brand img {height:45px;}
+header h1 {
+  font-size:1rem;
+  color:var(--accent);
+  margin:0 10px;
+  flex:1 1 auto;
+}
 
 /* NAVIGATION */
 nav {
   display:flex;
-  gap:12px;
+  gap:10px;
   align-items:center;
 }
 nav a {
   text-decoration:none;
   color:var(--dark);
   font-weight:600;
-  padding:8px 10px;
+  padding:6px 10px;
   border-bottom:2px solid transparent;
   transition:all 0.3s ease;
-}
-nav a:hover {
-  color:var(--accent);
 }
 nav a.active {
   color:var(--accent);
@@ -69,7 +73,6 @@ nav a.cta {
   padding:8px 14px;
   border-radius:8px;
   border:none;
-  border-bottom:none;
 }
 
 /* MOBILE MENU */
@@ -80,53 +83,38 @@ nav a.cta {
   background:none;
   border:none;
   color:var(--accent);
-  margin-left:auto;
 }
 @media(max-width:768px){
   nav {
     display:none;
     flex-direction:column;
-    position:fixed;
-    top:60px;
-    left:0;
     width:100%;
+    text-align:center;
     background:var(--white);
     border-top:1px solid #eee;
-    box-shadow:0 4px 12px rgba(0,0,0,0.08);
-    animation:slideDown 0.3s ease;
-    z-index:999;
+    padding:10px 0;
+    position:absolute;
+    top:65px;
+    left:0;
   }
   nav.active {display:flex;}
-  nav a {
-    padding:14px 0;
-    width:100%;
-    border-bottom:1px solid #f1f1f1;
-  }
   .menu-toggle {display:block;}
-  header {flex-wrap:nowrap;}
-}
-@keyframes slideDown {
-  from {opacity:0;transform:translateY(-10px);}
-  to {opacity:1;transform:translateY(0);}
 }
 
-/* FIXED CALL BUTTON BELOW HEADER */
-.fixed-call {
-  position:sticky;
-  top:60px;
-  z-index:999;
-  background:var(--accent);
-  color:white;
+/* CALL NOW BUTTON BELOW HEADER */
+.top-call-btn {
+  display:block;
+  background:var(--green);
+  color:#fff;
   text-align:center;
+  font-weight:700;
   padding:10px 0;
-}
-.fixed-call a {
-  display:inline-block;
-  color:white;
   text-decoration:none;
-  font-weight:600;
   font-size:1rem;
-  letter-spacing:0.5px;
+  box-shadow:0 2px 6px rgba(0,0,0,0.15);
+  position:sticky;
+  top:65px;
+  z-index:900;
 }
 
 /* SECTION */
@@ -139,6 +127,7 @@ h2 {
   font-size:1.6rem;
   color:var(--accent);
   text-align:center;
+  margin-bottom:10px;
 }
 p {text-align:center;color:var(--muted);}
 .service-section {
@@ -154,15 +143,22 @@ ul {
   text-align:left;
 }
 .btn {
-  background:var(--accent);
-  color:#fff;
-  padding:10px 16px;
+  font-size:0.95rem;
+  padding:8px 14px;
   border-radius:8px;
   text-decoration:none;
   font-weight:600;
   display:inline-block;
+  margin:6px;
 }
-.btn.dark {background:#111;}
+.call-btn {
+  background:var(--green);
+  color:#fff;
+}
+.request-btn {
+  background:var(--accent);
+  color:#fff;
+}
 
 /* FOOTER */
 footer {
@@ -174,7 +170,7 @@ footer {
   background:var(--white);
 }
 
-/* STICKY FLOATING BUTTONS */
+/* STICKY BUTTONS */
 .sticky-call,.sticky-whatsapp {
   position:fixed;
   bottom:20px;
@@ -206,16 +202,14 @@ footer {
   <nav>
     <a href="index.html">Home</a>
     <a href="ac.html">AC Service</a>
-    <a href="refrigerator.html">Refrigerator</a>
+    <a href="refrigerator.html" class="active">Refrigerator</a>
     <a href="washing.html">Washing Machine</a>
     <a href="contact.html" class="cta">Contact</a>
   </nav>
 </header>
 
-<!-- Fixed Call Now Button Below Header -->
-<div class="fixed-call">
-  <a href="tel:+919025203880">📞 Call Now</a>
-</div>
+<!-- Always visible call now button -->
+<a href="tel:+919025203880" class="top-call-btn">📞 Call Now</a>
 
 <section id="refrigerator">
   <h2>Refrigerator Repair in Coimbatore</h2>
@@ -231,9 +225,9 @@ footer {
     </ul>
     <h3>Brands We Handle</h3>
     <p>Samsung, LG, Whirlpool, Haier, Godrej, Bosch, Panasonic, Siemens & more.</p>
-    <div style="text-align:center;margin-top:16px;">
-      <a href="tel:+919025203880" class="btn dark">📞 Call for Fridge Repair</a>
-      <a href="contact.html" class="btn">Request Service</a>
+    <div style="text-align:center;margin-top:20px;">
+      <a href="tel:+919025203880" class="btn call-btn">📞 Call for Fridge Repair</a>
+      <a href="contact.html" class="btn request-btn">Request Service</a>
     </div>
   </div>
 </section>
@@ -243,7 +237,7 @@ footer {
   Call: <a href="tel:+919025203880">+91 9025203880</a>
 </footer>
 
-<!-- Floating Buttons -->
+<!-- Sticky Buttons -->
 <a href="tel:+919025203880" class="sticky-call">📞</a>
 <a href="https://wa.me/919025203880" class="sticky-whatsapp">💬</a>
 
@@ -251,9 +245,7 @@ footer {
 // Mobile menu toggle
 const toggle = document.querySelector('.menu-toggle');
 const nav = document.querySelector('nav');
-toggle.addEventListener('click', () => {
-  nav.classList.toggle('active');
-});
+toggle.addEventListener('click', () => nav.classList.toggle('active'));
 
 // Highlight current page
 const currentPage = window.location.pathname.split("/").pop();
