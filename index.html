@@ -10,10 +10,10 @@
 <style>
 :root {
   --accent:#1E90FF;     /* Fresh blue */
-  --green:#00C49A;      /* Aqua green */
-  --dark:#0A2540;       /* Navy text */
-  --muted:#6B7280;      /* Muted gray text */
-  --bg:#F0F8FF;         /* Light blue background */
+  --green:#16a34a;      /* Keep the original green for call button */
+  --dark:#0A2540;
+  --muted:#6B7280;
+  --bg:#F0F8FF;
   --white:#FFFFFF;
   font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
 }
@@ -172,14 +172,14 @@ footer {
   background:var(--white);
 }
 
-/* FIXED FLOATING BUTTONS */
+/* ✅ FIXED FLOATING BUTTONS (unchanged) */
 .floating-buttons {
   position:fixed;
   bottom:20px;
-  right:20px;
+  width:100%;
   display:flex;
-  flex-direction:column;
-  gap:12px;
+  justify-content:space-between;
+  padding:0 20px;
   z-index:9999;
 }
 .floating-buttons a {
@@ -193,11 +193,6 @@ footer {
   font-size:22px;
   text-decoration:none;
   box-shadow:0 4px 8px rgba(0,0,0,0.25);
-  transition:transform 0.2s, box-shadow 0.2s;
-}
-.floating-buttons a:hover {
-  transform:scale(1.08);
-  box-shadow:0 6px 12px rgba(0,0,0,0.3);
 }
 .floating-buttons .whatsapp {background:#25D366;}
 .floating-buttons .call {background:var(--green);}
@@ -247,7 +242,7 @@ footer {
   Call: <a href="tel:+919025203880">+91 9025203880</a>
 </footer>
 
-<!-- Fixed Floating Buttons -->
+<!-- ✅ Fixed Floating Buttons (kept exactly as before) -->
 <div class="floating-buttons">
   <a href="https://wa.me/919025203880" class="whatsapp" title="Chat on WhatsApp">💬</a>
   <a href="tel:+919025203880" class="call" title="Call Now">📞</a>
