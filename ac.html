@@ -14,10 +14,9 @@
   --muted:#6b7280;
   --bg:#f7fbff;
   --white:#fff;
-  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
 }
-* { box-sizing:border-box; }
-html { scroll-behavior:smooth; }
+*{box-sizing:border-box;}
 body {
   margin:0;
   background:var(--bg);
@@ -26,102 +25,88 @@ body {
   opacity:0;
   transform:translateY(10px);
   animation:fadeInUp 0.8s ease-out forwards;
-  transition:opacity 0.4s ease;
 }
 @keyframes fadeInUp {
-  to { opacity:1; transform:translateY(0); }
+  to {opacity:1;transform:translateY(0);}
 }
-.fade-out { opacity:0 !important; }
+.fade-out{opacity:0;transition:opacity 0.4s ease;}
 
-/* Header */
+/* HEADER */
 header {
-  position:sticky; top:0; z-index:1000;
-  display:flex; justify-content:space-between; align-items:center;
-  padding:10px 4%; background:var(--white);
+  position:sticky;top:0;z-index:1000;
+  background:var(--white);
   box-shadow:0 2px 10px rgba(0,0,0,0.05);
+  display:flex;justify-content:space-between;align-items:center;
+  padding:10px 5%;
+  flex-wrap:wrap;
 }
-header img { height:40px; }
+.brand img {height:45px;}
+header h1 {font-size:1rem;color:var(--accent);margin:0 10px;flex:1 1 auto;}
+.menu-toggle {
+  display:none;
+  font-size:1.6rem;
+  cursor:pointer;
+  background:none;
+  border:none;
+  color:var(--accent);
+}
 
-.header-call {
-  background:var(--accent);
-  color:#fff;
-  font-weight:600;
-  text-decoration:none;
-  padding:8px 14px;
-  border-radius:8px;
-  font-size:14px;
+/* NAVIGATION */
+nav {
   display:flex;
+  gap:10px;
+  flex-wrap:wrap;
   align-items:center;
-  gap:6px;
 }
-
-/* Nav */
-nav { display:flex; gap:10px; align-items:center; }
 nav a {
   text-decoration:none;
   color:var(--dark);
   font-weight:600;
-  padding:8px 10px;
-  border-radius:6px;
+  padding:6px 10px;
+  border-bottom:2px solid transparent;
+  transition:all 0.3s ease;
 }
 nav a.active {
   color:var(--accent);
-  background:rgba(108,78,243,0.1);
+  border-bottom:2px solid var(--accent);
 }
 nav a.cta {
   background:var(--accent);
   color:#fff;
   padding:8px 14px;
   border-radius:8px;
+  border:none;
 }
 
-/* Hamburger */
-.menu-toggle {
-  display:none;
-  flex-direction:column;
-  justify-content:center;
-  cursor:pointer;
-  width:28px;
-  height:24px;
-}
-.menu-toggle span {
-  height:3px;
-  background:var(--dark);
-  margin:4px 0;
-  border-radius:3px;
-  transition:all 0.3s ease;
-}
-.menu-toggle.active span:nth-child(1) { transform:rotate(45deg) translateY(8px); }
-.menu-toggle.active span:nth-child(2) { opacity:0; }
-.menu-toggle.active span:nth-child(3) { transform:rotate(-45deg) translateY(-8px); }
-
-/* Mobile nav */
-@media (max-width:768px) {
+/* MOBILE MENU */
+@media(max-width:768px){
   nav {
-    position:absolute;
-    top:65px;
-    left:0;
-    width:100%;
-    background:var(--white);
+    display:none;
     flex-direction:column;
-    align-items:center;
-    gap:12px;
-    padding:16px 0;
-    box-shadow:0 4px 10px rgba(0,0,0,0.1);
-    max-height:0;
-    overflow:hidden;
-    transition:max-height 0.3s ease;
+    width:100%;
+    text-align:center;
+    background:var(--white);
+    border-top:1px solid #eee;
+    padding:10px 0;
   }
-  nav.open { max-height:300px; }
-  .menu-toggle { display:flex; }
-  .header-call { display:none; }
+  nav.active {display:flex;}
+  .menu-toggle {display:block;}
+  header {flex-wrap:nowrap;}
 }
 
-/* Content */
-section { padding:48px 20px; max-width:1100px; margin:auto; text-align:center; }
-h2 { font-size:1.6rem; color:var(--accent); margin-bottom:10px; }
-p { color:var(--muted); margin-bottom:20px; }
-
+/* SECTION */
+section {
+  padding:48px 20px;
+  max-width:1100px;
+  margin:auto;
+  text-align:center;
+}
+h2 {
+  font-size:1.6rem;
+  color:var(--accent);
+  text-align:center;
+}
+p {text-align:center;color:var(--muted);}
 .service-section {
   background:var(--white);
   border-radius:12px;
@@ -129,12 +114,28 @@ p { color:var(--muted); margin-bottom:20px; }
   margin-top:20px;
   box-shadow:0 4px 18px rgba(0,0,0,0.05);
 }
-.service-section h3 { color:var(--dark); }
+
+/* IMAGE ANIMATION */
+.service-image {
+  width:100%;
+  max-width:600px;
+  height:auto;
+  border-radius:12px;
+  margin:20px auto;
+  display:block;
+  transform:translateY(20px);
+  opacity:0;
+  transition:transform 0.6s ease, opacity 0.6s ease;
+}
+.service-image.visible {
+  transform:translateY(0);
+  opacity:1;
+}
+
 ul {
   max-width:800px;
-  margin:10px auto 0;
+  margin:10px auto 0 20px;
   text-align:left;
-  padding-left:20px;
 }
 .btn {
   background:var(--accent);
@@ -145,13 +146,8 @@ ul {
   font-weight:600;
   display:inline-block;
 }
-.btn.dark { background:#111; }
-
-.btn + .btn {
-  margin-left:10px;
-}
-
-/* spacing between buttons */
+.btn.dark {background:#28a745;} /* green call button */
+.btn + .btn {margin-left:10px;}
 .call-buttons {
   margin-top:25px;
   display:flex;
@@ -160,6 +156,7 @@ ul {
   gap:12px;
 }
 
+/* FOOTER */
 footer {
   text-align:center;
   color:var(--muted);
@@ -169,7 +166,7 @@ footer {
   background:var(--white);
 }
 
-/* Sticky bottom buttons */
+/* STICKY BUTTONS */
 .sticky-call,.sticky-whatsapp {
   position:fixed;
   bottom:20px;
@@ -182,35 +179,30 @@ footer {
   box-shadow:0 4px 8px rgba(0,0,0,0.2);
   z-index:9999;
 }
-.sticky-call { right:20px; background:var(--accent); }
+.sticky-call { right:20px; background:#28a745; }
 .sticky-whatsapp { left:20px; background:#25D366; }
 </style>
 </head>
 
 <body>
 <header>
-  <img src="images/logo.png" alt="Elite Home Appliances Care">
-
-  <div class="menu-toggle" id="menu-toggle">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-
-  <nav id="nav-menu">
+  <div class="brand"><img src="images/logo.png" alt="Elite Home Appliances Care"></div>
+  <h1>Elite Home Appliances Care</h1>
+  <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+  <nav>
     <a href="index.html">Home</a>
-    <a href="ac.html" class="active">AC</a>
+    <a href="ac.html" class="active">AC Service</a>
     <a href="refrigerator.html">Refrigerator</a>
     <a href="washing.html">Washing Machine</a>
-    <a href="contact.html">Contact</a>
+    <a href="contact.html" class="cta">Contact</a>
   </nav>
-
-  <a href="tel:+919025203880" class="header-call">📞 Call Now</a>
 </header>
 
 <section id="ac">
   <h2>AC Service & Repair in Coimbatore</h2>
   <p>Stay cool — we provide installation, servicing, gas refills, and repairs for all AC brands. Fast response and certified technicians.</p>
+
+  <img src="images/ac-service.jpeg" alt="AC Repair Service" class="service-image">
 
   <div class="service-section">
     <h3>Our AC Services</h3>
@@ -233,24 +225,29 @@ footer {
 </section>
 
 <footer>
-  © 2025 Elite Home Appliances Care — All Rights Reserved. | Call:
-  <a href="tel:+919025203880">+91 9025203880</a>
+  © 2025 Elite Home Appliances Care — All Rights Reserved. &nbsp;|&nbsp; 
+  Call: <a href="tel:+919025203880">+91 9025203880</a>
 </footer>
 
+<!-- Sticky Buttons -->
 <a href="tel:+919025203880" class="sticky-call">📞 Call Now</a>
 <a href="https://wa.me/919025203880" class="sticky-whatsapp">💬 WhatsApp</a>
 
 <script>
-// Highlight active page
-const navLinks = document.querySelectorAll('nav a');
+// Mobile menu toggle
+const toggle = document.querySelector('.menu-toggle');
+const nav = document.querySelector('nav');
+toggle.addEventListener('click', () => nav.classList.toggle('active'));
+
+// Highlight current page
 const currentPage = window.location.pathname.split("/").pop();
-navLinks.forEach(link => {
-  if(link.getAttribute("href") === currentPage) {
-    link.classList.add("active");
+document.querySelectorAll('nav a').forEach(link=>{
+  if(link.getAttribute('href')===currentPage){
+    link.classList.add('active');
   }
 });
 
-// Fade-out transition
+// Smooth fade-out transition
 document.querySelectorAll('a[href]').forEach(link => {
   if (link.hostname === window.location.hostname) {
     link.addEventListener('click', function (e) {
@@ -264,19 +261,14 @@ document.querySelectorAll('a[href]').forEach(link => {
   }
 });
 
-// Mobile menu toggle
-const toggle = document.getElementById('menu-toggle');
-const navMenu = document.getElementById('nav-menu');
-toggle.addEventListener('click', () => {
-  navMenu.classList.toggle('open');
-  toggle.classList.toggle('active');
-});
-navLinks.forEach(link => {
-  link.addEventListener('click', () => {
-    navMenu.classList.remove('open');
-    toggle.classList.remove('active');
+// Animate image on scroll
+const img = document.querySelector('.service-image');
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting) entry.target.classList.add('visible');
   });
-});
+},{threshold:0.3});
+observer.observe(img);
 </script>
 </body>
 </html>
