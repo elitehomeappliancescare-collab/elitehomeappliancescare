@@ -18,7 +18,6 @@
 }
 *{box-sizing:border-box;margin:0;padding:0;}
 body {
-  margin:0;
   background:var(--bg);
   color:var(--dark);
   line-height:1.6;
@@ -30,10 +29,14 @@ body {
 
 /* HEADER */
 header {
-  position:sticky;top:0;z-index:1000;
+  position:sticky;
+  top:0;
+  z-index:1000;
   background:var(--white);
   box-shadow:0 2px 10px rgba(0,0,0,0.05);
-  display:flex;justify-content:space-between;align-items:center;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
   padding:10px 16px;
 }
 .brand img {height:42px;}
@@ -84,14 +87,15 @@ nav a.cta {
   nav {
     display:none;
     flex-direction:column;
+    position:fixed;
+    top:60px;
+    left:0;
     width:100%;
     background:var(--white);
     border-top:1px solid #eee;
-    position:absolute;
-    left:0;
-    top:60px;
     box-shadow:0 4px 12px rgba(0,0,0,0.08);
     animation:slideDown 0.3s ease;
+    z-index:999;
   }
   nav.active {display:flex;}
   nav a {
@@ -106,6 +110,23 @@ nav a.cta {
 @keyframes slideDown {
   from {opacity:0;transform:translateY(-10px);}
   to {opacity:1;transform:translateY(0);}
+}
+
+/* FIXED CALL BUTTON BELOW HEADER */
+.fixed-call {
+  position:sticky;
+  top:60px;
+  z-index:999;
+  background:var(--accent);
+  color:white;
+  text-align:center;
+  padding:10px 0;
+  font-weight:600;
+  font-size:1.1rem;
+}
+.fixed-call a {
+  color:white;
+  text-decoration:none;
 }
 
 /* SECTION */
@@ -153,7 +174,7 @@ footer {
   background:var(--white);
 }
 
-/* STICKY BUTTONS */
+/* STICKY FLOATING BUTTONS */
 .sticky-call,.sticky-whatsapp {
   position:fixed;
   bottom:20px;
@@ -191,6 +212,11 @@ footer {
   </nav>
 </header>
 
+<!-- Fixed Call Button Below Header -->
+<div class="fixed-call">
+  📞 <a href="tel:+919025203880">Call Now: +91 9025203880</a>
+</div>
+
 <section id="refrigerator">
   <h2>Refrigerator Repair in Coimbatore</h2>
   <p>We repair all fridge types — single door, double door, side-by-side and inverter models. Quick diagnostics and genuine spare parts.</p>
@@ -217,8 +243,8 @@ footer {
   Call: <a href="tel:+919025203880">+91 9025203880</a>
 </footer>
 
-<!-- Sticky Buttons -->
-<a href="tel:+919025203880" class="sticky-call">📞 Call Now</a>
+<!-- Floating Buttons -->
+<a href="tel:+919025203880" class="sticky-call">📞 Call</a>
 <a href="https://wa.me/919025203880" class="sticky-whatsapp">💬 WhatsApp</a>
 
 <script>
