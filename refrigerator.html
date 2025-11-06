@@ -170,21 +170,30 @@ footer {
   background:var(--white);
 }
 
-/* STICKY BUTTONS */
-.sticky-call,.sticky-whatsapp {
+/* FLOATING BUTTONS (ALWAYS FIXED WHILE SCROLLING) */
+.float-btn {
   position:fixed;
   bottom:20px;
-  font-size:16px;
-  font-weight:bold;
-  padding:12px 18px;
-  border-radius:50px;
-  color:white;
-  text-decoration:none;
-  box-shadow:0 4px 8px rgba(0,0,0,0.2);
+  width:50px;
+  height:50px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  font-size:22px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.25);
   z-index:9999;
+  text-decoration:none;
 }
-.sticky-call { right:20px; background:var(--accent); }
-.sticky-whatsapp { left:20px; background:#25D366; }
+.float-call {
+  right:20px;
+  background:var(--accent);
+}
+.float-whatsapp {
+  left:20px;
+  background:#25D366;
+}
 
 /* ANIMATIONS */
 @keyframes fadeInUp {
@@ -237,9 +246,9 @@ footer {
   Call: <a href="tel:+919025203880">+91 9025203880</a>
 </footer>
 
-<!-- Sticky Buttons -->
-<a href="tel:+919025203880" class="sticky-call">📞</a>
-<a href="https://wa.me/919025203880" class="sticky-whatsapp">💬</a>
+<!-- Floating WhatsApp & Call Icons -->
+<a href="https://wa.me/919025203880" class="float-btn float-whatsapp" aria-label="Chat on WhatsApp">💬</a>
+<a href="tel:+919025203880" class="float-btn float-call" aria-label="Call Now">📞</a>
 
 <script>
 // Mobile menu toggle
