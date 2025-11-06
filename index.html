@@ -18,7 +18,7 @@
   font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
 }
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--dark);line-height:1.6}
+body{margin:0;background:var(--bg);color:var(--dark);line-height:1.6;overflow-x:hidden}
 header{
   position:sticky;top:0;z-index:1000;
   display:flex;justify-content:space-between;align-items:center;
@@ -26,12 +26,23 @@ header{
   box-shadow:0 2px 10px rgba(0,0,0,0.05);flex-wrap:wrap
 }
 header h1{font-size:1.1rem;color:var(--accent);margin:0}
-nav a{margin:0 10px;text-decoration:none;color:var(--dark);font-weight:600}
+nav a{margin:0 10px;text-decoration:none;color:var(--dark);font-weight:600;transition:color .3s}
+nav a:hover{color:var(--accent)}
 nav a.cta{background:var(--accent);color:#fff;padding:8px 14px;border-radius:8px}
-section{padding:48px 20px;max-width:1100px;margin:auto}
+section{padding:48px 20px;max-width:1100px;margin:auto;animation:fadeInUp .8s ease both}
 h2{font-size:1.6rem;color:var(--accent);text-align:center}
 p{text-align:center;color:var(--muted)}
-.btn{background:var(--accent);color:#fff;padding:10px 16px;border-radius:8px;text-decoration:none;font-weight:600;display:inline-block}
+.btn{
+  background:var(--accent);
+  color:#fff;
+  padding:12px 18px;
+  border-radius:10px;
+  text-decoration:none;
+  font-weight:600;
+  display:inline-block;
+  transition:transform .2s, box-shadow .2s;
+}
+.btn:hover{transform:translateY(-3px);box-shadow:0 6px 16px rgba(108,78,243,0.25);}
 .btn.dark{background:#111}
 .service-section{background:var(--white);border-radius:12px;padding:26px;margin-top:20px;box-shadow:0 4px 18px rgba(0,0,0,0.05)}
 ul{max-width:800px;margin:10px auto 0 20px;text-align:left}
@@ -48,13 +59,14 @@ label{display:block;margin-bottom:6px;font-weight:600}
 input,textarea{width:100%;padding:10px;border:1px solid #e5e7eb;border-radius:8px;margin-bottom:12px}
 a.brand-link{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--dark);font-weight:700}
 
-/* Image gallery styles */
+/* Image gallery */
 .gallery{
   display:flex;
   flex-wrap:wrap;
   justify-content:center;
   gap:14px;
   margin-top:24px;
+  animation:fadeIn .8s ease both;
 }
 .gallery img{
   width:100%;
@@ -62,9 +74,47 @@ a.brand-link{display:flex;align-items:center;gap:10px;text-decoration:none;color
   border-radius:12px;
   box-shadow:0 4px 14px rgba(15,23,36,0.08);
   object-fit:cover;
+  transition:transform .3s ease;
 }
+.gallery img:hover{transform:scale(1.05);}
 @media(min-width:768px){
   .gallery img{width:32%;}
+}
+
+/* service cards */
+.service-buttons{
+  display:flex;
+  flex-wrap:wrap;
+  gap:20px;
+  justify-content:center;
+  margin-top:25px;
+}
+.service-card{
+  background:var(--white);
+  border:2px solid #e5e7eb;
+  border-radius:12px;
+  width:280px;
+  padding:24px 18px;
+  text-align:center;
+  box-shadow:0 3px 10px rgba(0,0,0,0.04);
+  transition:transform .3s, box-shadow .3s, border .3s;
+}
+.service-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 8px 20px rgba(108,78,243,0.25);
+  border:2px solid var(--accent);
+}
+.service-card h3{color:var(--accent);margin-bottom:8px;}
+.service-card a{margin-top:12px}
+
+/* fade animation */
+@keyframes fadeInUp{
+  from{opacity:0;transform:translateY(20px);}
+  to{opacity:1;transform:translateY(0);}
+}
+@keyframes fadeIn{
+  from{opacity:0;}
+  to{opacity:1;}
 }
 </style>
 </head>
@@ -91,7 +141,6 @@ a.brand-link{display:flex;align-items:center;gap:10px;text-decoration:none;color
     <a href="contact.html" class="btn">Request Service / Contact</a>
   </div>
 
-  <!-- Image Gallery Section -->
   <div class="gallery">
     <img src="images/repair1.jpeg" alt="Technician repairing washing machine">
     <img src="images/repair2.jpeg" alt="Appliance repair expert servicing refrigerator">
@@ -102,10 +151,23 @@ a.brand-link{display:flex;align-items:center;gap:10px;text-decoration:none;color
 <section class="service-section" id="services">
   <h2>Our Services</h2>
   <p style="max-width:900px;margin:8px auto 0;">We provide repair, installation and maintenance for household appliances. Click a service to learn more:</p>
-  <div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:18px;">
-    <a href="ac.html" class="btn">AC Service</a>
-    <a href="refrigerator.html" class="btn">Refrigerator Repair</a>
-    <a href="washing.html" class="btn">Washing Machine</a>
+  
+  <div class="service-buttons">
+    <div class="service-card">
+      <h3>AC Service</h3>
+      <p>Cooling problems? We offer professional AC repair & gas filling services.</p>
+      <a href="ac.html" class="btn">View Details</a>
+    </div>
+    <div class="service-card">
+      <h3>Refrigerator</h3>
+      <p>Fix cooling, noise or compressor issues fast with our expert technicians.</p>
+      <a href="refrigerator.html" class="btn">View Details</a>
+    </div>
+    <div class="service-card">
+      <h3>Washing Machine</h3>
+      <p>Top-load or front-load, we repair all washing machines at your doorstep.</p>
+      <a href="washing.html" class="btn">View Details</a>
+    </div>
   </div>
 </section>
 
@@ -124,7 +186,6 @@ a.brand-link{display:flex;align-items:center;gap:10px;text-decoration:none;color
   <a href="tel:+919025203880">+91 9025203880</a>
 </footer>
 
-<!-- Sticky Buttons -->
 <a href="tel:+919025203880" class="sticky-call">📞 Call Now</a>
 <a href="https://wa.me/919025203880" class="sticky-whatsapp">💬 WhatsApp</a>
 
