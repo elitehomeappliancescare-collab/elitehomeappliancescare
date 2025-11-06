@@ -3,22 +3,20 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Washing Machine Service in Coimbatore — Elite Home Appliances Care</title>
-<meta name="description" content="Professional washing machine service and repair in Coimbatore. Installation, drum cleaning, motor repair, and maintenance. Call +91 9025203880.">
+<title>AC Service in Coimbatore — Elite Home Appliances Care</title>
+<meta name="description" content="AC service and repair in Coimbatore. Installation, gas refilling, compressor repair, and maintenance. Call +91 9025203880.">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
 :root {
-  /* Fresh, clean color palette for washing machine service */
-  --accent: #1E90FF;    /* Trustworthy blue */
-  --green: #00C49A;     /* Fresh aqua green */
-  --dark: #0A2540;      /* Deep navy for text */
-  --muted: #6B7280;     /* Subtle gray for paragraphs */
-  --bg: #F0F8FF;        /* Very light blue background */
+  --accent: #1E90FF;     /* Primary Blue */
+  --green: #00C49A;      /* Aqua Green */
+  --dark: #0A2540;       /* Deep Navy */
+  --muted: #6B7280;      /* Neutral Gray */
+  --bg: #F0F8FF;         /* Light Blue Background */
   --white: #FFFFFF;
   font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
 }
-
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { background: var(--bg); color: var(--dark); line-height: 1.6; margin: 0; }
 
@@ -73,7 +71,7 @@ nav a.cta {
 nav a.cta:hover { background: #0B74DA; }
 
 /* MOBILE MENU */
-@media (max-width: 768px) {
+@media (max-width:768px) {
   .menu-toggle { display: block; }
   nav {
     position: fixed;
@@ -203,42 +201,41 @@ footer {
   <button class="menu-toggle" aria-label="Toggle menu">☰</button>
   <nav>
     <a href="index.html">Home</a>
-    <a href="ac.html">AC Service</a>
+    <a href="ac.html" class="active">AC Service</a>
     <a href="refrigerator.html">Refrigerator</a>
-    <a href="washing.html" class="active">Washing Machine</a>
+    <a href="washing.html">Washing Machine</a>
     <a href="contact.html" class="cta">Contact</a>
   </nav>
 </header>
 
-<section id="washing">
-  <h2>Washing Machine Service & Repair in Coimbatore</h2>
-  <p>Keep your laundry effortless — we provide expert washing machine service, installation, drum cleaning, and motor repairs for all brands.</p>
+<section id="ac">
+  <h2>AC Service & Repair in Coimbatore</h2>
+  <p>Stay cool — we provide installation, servicing, gas refills, and repairs for all AC brands. Fast response and certified technicians.</p>
 
-  <img src="images/washingmachine.jpg" alt="Washing Machine Service" class="service-image">
+  <img src="images/repair1.jpeg" alt="AC Repair Service" class="service-image">
 
   <div class="service-section">
-    <h3>Our Washing Machine Services</h3>
+    <h3>Our AC Services</h3>
     <ul>
-      <li>Front load & top load washing machine repair</li>
-      <li>Installation & uninstallation services</li>
-      <li>Drum cleaning & water drainage problem fixing</li>
-      <li>Motor, PCB & door lock repairs</li>
-      <li>Noise, vibration & spin issues troubleshooting</li>
+      <li>AC installation & uninstallation</li>
+      <li>Gas refilling & refrigerant top-up</li>
+      <li>Compressor, PCB and electrical repairs</li>
+      <li>AC not cooling / water leakage troubleshooting</li>
       <li>Preventive maintenance & AMC plans</li>
     </ul>
 
     <h3 style="margin-top:20px;">Brands We Service</h3>
-    <p>LG, Samsung, IFB, Whirlpool, Bosch, Panasonic, Haier, Godrej, Electrolux & more.</p>
+    <p>Voltas, LG, Samsung, Daikin, Blue Star, Panasonic, Hitachi, Carrier, Whirlpool & more.</p>
 
     <div class="call-buttons">
-      <a href="tel:+919025203880" class="btn dark">📞 Call for Service</a>
+      <a href="tel:+919025203880" class="btn dark">📞 Call for AC Service</a>
       <a href="contact.html" class="btn">Book Service Online</a>
     </div>
   </div>
 </section>
 
 <footer>
-  © 2025 Elite Home Appliances Care — All Rights Reserved. |
+  © 2025 Elite Home Appliances Care — All Rights Reserved. | 
   Call: <a href="tel:+919025203880">+91 9025203880</a>
 </footer>
 
@@ -258,21 +255,21 @@ menuToggle.addEventListener('click', () => {
 
 // Highlight current page
 const currentPage = window.location.pathname.split("/").pop();
-document.querySelectorAll('nav a').forEach(link => {
-  if (link.getAttribute('href') === currentPage) {
+document.querySelectorAll('nav a').forEach(link=>{
+  if(link.getAttribute('href')===currentPage){
     link.classList.add('active');
   }
 });
 
 // Image animation on scroll
 const img = document.querySelector('.service-image');
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
       entry.target.classList.add('visible');
     }
   });
-}, { threshold: 0.3 });
+},{threshold:0.3});
 observer.observe(img);
 </script>
 </body>
