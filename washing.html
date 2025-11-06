@@ -10,103 +10,129 @@
 <style>
 :root {
   --accent:#6c4ef3;
+  --green:#16a34a;
   --dark:#0f1724;
   --muted:#6b7280;
   --bg:#f7fbff;
   --white:#fff;
   font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
 }
-*{box-sizing:border-box;}
-body {
-  margin:0;
-  background:var(--bg);
-  color:var(--dark);
-  line-height:1.6;
-  opacity:0;
-  transform:translateY(10px);
-  animation:fadeInUp 0.6s ease-out forwards;
-}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--dark);line-height:1.6;margin:0;}
 
-/* Header */
+/* HEADER */
 header {
-  position:sticky;top:0;z-index:1000;
-  display:flex;justify-content:space-between;align-items:center;
-  padding:14px 5%;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:8px 4%;
   background:var(--white);
   box-shadow:0 2px 10px rgba(0,0,0,0.05);
-  flex-wrap:wrap;
 }
+header .brand img {height:44px;}
 header h1 {
   font-size:1rem;
   color:var(--accent);
-  margin:8px 0;
-  flex:1 1 100%;
+  flex:1;
   text-align:center;
 }
-header img { height:48px; }
+.menu-toggle {
+  background:none;
+  border:none;
+  font-size:26px;
+  cursor:pointer;
+  color:var(--dark);
+  display:none;
+}
 
-/* Navigation */
+/* NAVIGATION */
 nav {
   display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  width:100%;
-  margin-top:6px;
+  gap:14px;
 }
 nav a {
-  margin:6px 10px;
   text-decoration:none;
   color:var(--dark);
   font-weight:600;
-  padding-bottom:4px;
-  border-bottom:2px solid transparent;
-  transition:all 0.3s ease;
+  padding:8px;
+  border-radius:6px;
 }
-nav a.active {
-  color:var(--accent);
-  border-bottom:2px solid var(--accent);
-}
+nav a.active {color:var(--accent);}
 nav a.cta {
   background:var(--accent);
   color:#fff;
   padding:8px 14px;
   border-radius:8px;
-  border:none;
-}
-@media(min-width:768px){
-  header h1{flex:unset;text-align:left;margin-left:10px;}
-  nav{width:auto;margin-top:0;}
 }
 
-/* Section */
+/* MOBILE MENU */
+@media (max-width:768px) {
+  .menu-toggle {display:block;}
+  nav {
+    position:fixed;
+    top:58px;
+    left:0;
+    width:100%;
+    background:var(--white);
+    flex-direction:column;
+    align-items:center;
+    gap:10px;
+    padding:12px 0;
+    box-shadow:0 4px 12px rgba(0,0,0,0.1);
+    max-height:0;
+    overflow:hidden;
+    transition:max-height 0.3s ease;
+  }
+  nav.open {max-height:240px;}
+}
+
+/* SECTION */
 section {
   padding:48px 20px;
   max-width:1100px;
   margin:auto;
-}
-h2 {
-  font-size:1.6rem;
-  color:var(--accent);
   text-align:center;
 }
-p {
-  text-align:center;
-  color:var(--muted);
+h2 {font-size:1.6rem;color:var(--accent);}
+p {color:var(--muted);margin:10px auto 20px;}
+
+/* IMAGE ANIMATION */
+.service-image {
+  width:100%;
+  max-width:600px;
+  height:auto;
+  border-radius:12px;
+  margin:20px auto;
+  display:block;
+  transform:translateY(20px);
+  opacity:0;
+  transition:transform 0.6s ease, opacity 0.6s ease;
+}
+.service-image.visible {
+  transform:translateY(0);
+  opacity:1;
 }
 
-/* Service Box */
+/* SERVICE SECTION */
 .service-section {
   background:var(--white);
   border-radius:12px;
   padding:26px;
   margin-top:20px;
   box-shadow:0 4px 18px rgba(0,0,0,0.05);
-}
-ul {
-  max-width:800px;
-  margin:10px auto 0 20px;
   text-align:left;
 }
+.service-section h3 {color:var(--dark);}
+ul {
+  max-width:800px;
+  margin:10px auto 0;
+  padding-left:20px;
+}
+
+/* BUTTONS */
 .btn {
   background:var(--accent);
   color:#fff;
@@ -115,10 +141,20 @@ ul {
   text-decoration:none;
   font-weight:600;
   display:inline-block;
+  transition:background 0.3s;
 }
-.btn.dark { background:#111; }
+.btn:hover {background:#5840d6;}
+.btn.dark {background:var(--green);}
+.btn.dark:hover {background:#128a3d;}
+.call-buttons {
+  margin-top:25px;
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:12px;
+}
 
-/* Footer */
+/* FOOTER */
 footer {
   text-align:center;
   color:var(--muted);
@@ -128,51 +164,53 @@ footer {
   background:var(--white);
 }
 
-/* Sticky Buttons */
-.sticky-call,.sticky-whatsapp {
+/* FIXED FLOATING BUTTONS */
+.floating-buttons {
   position:fixed;
   bottom:20px;
-  font-size:16px;
-  font-weight:bold;
-  padding:12px 18px;
-  border-radius:50px;
-  color:white;
-  text-decoration:none;
-  box-shadow:0 4px 8px rgba(0,0,0,0.2);
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  padding:0 20px;
   z-index:9999;
 }
-.sticky-call { right:20px; background:var(--accent); }
-.sticky-whatsapp { left:20px; background:#25D366; }
-
-/* Animations */
-@keyframes fadeInUp {
-  to { opacity:1; transform:translateY(0); }
+.floating-buttons a {
+  width:52px;
+  height:52px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  font-size:22px;
+  text-decoration:none;
+  box-shadow:0 4px 8px rgba(0,0,0,0.25);
 }
-.fade-out {
-  opacity:0;
-  transition:opacity 0.4s ease;
-}
+.floating-buttons .whatsapp {background:#25D366;}
+.floating-buttons .call {background:var(--green);}
 </style>
 </head>
 
 <body>
+
 <header>
-  <div class="brand">
-    <img src="images/logo.png" alt="Elite Home Appliances Care">
-  </div>
+  <div class="brand"><img src="images/logo.png" alt="Elite Home Appliances Care"></div>
   <h1>Elite Home Appliances Care</h1>
+  <button class="menu-toggle" aria-label="Toggle menu">☰</button>
   <nav>
     <a href="index.html">Home</a>
     <a href="ac.html">AC Service</a>
     <a href="refrigerator.html">Refrigerator</a>
-    <a href="washing.html">Washing Machine</a>
+    <a href="washing.html" class="active">Washing Machine</a>
     <a href="contact.html" class="cta">Contact</a>
   </nav>
 </header>
 
 <section id="washing">
   <h2>Washing Machine Repair in Coimbatore</h2>
-  <p>We offer expert washing machine service for all major brands — fast and affordable repairs at your doorstep.</p>
+  <p>We offer expert washing machine service for all major brands — fast, affordable, and doorstep repair solutions.</p>
+
+  <img src="images/washing-machine.jpg" alt="Washing Machine Repair Service" class="service-image">
 
   <div class="service-section">
     <h3>Our Washing Machine Services</h3>
@@ -184,10 +222,10 @@ footer {
       <li>Regular maintenance and cleaning</li>
     </ul>
 
-    <h3>Brands We Service</h3>
+    <h3 style="margin-top:20px;">Brands We Service</h3>
     <p>LG, Samsung, Whirlpool, Bosch, IFB, Panasonic, Godrej, Haier & more.</p>
 
-    <div style="text-align:center;margin-top:16px;">
+    <div class="call-buttons">
       <a href="tel:+919025203880" class="btn dark">📞 Call for Washing Machine Repair</a>
       <a href="contact.html" class="btn">Book Service Online</a>
     </div>
@@ -195,37 +233,42 @@ footer {
 </section>
 
 <footer>
-  © 2025 Elite Home Appliances Care — All Rights Reserved. &nbsp;|&nbsp; Call: 
-  <a href="tel:+919025203880">+91 9025203880</a>
+  © 2025 Elite Home Appliances Care — All Rights Reserved. | 
+  Call: <a href="tel:+919025203880">+91 9025203880</a>
 </footer>
 
-<!-- Sticky Buttons -->
-<a href="tel:+919025203880" class="sticky-call">📞 Call Now</a>
-<a href="https://wa.me/919025203880" class="sticky-whatsapp">💬 WhatsApp</a>
+<!-- Fixed Floating Buttons -->
+<div class="floating-buttons">
+  <a href="https://wa.me/919025203880" class="whatsapp" title="Chat on WhatsApp">💬</a>
+  <a href="tel:+919025203880" class="call" title="Call Now">📞</a>
+</div>
 
 <script>
-// Highlight current page link
-const navLinks = document.querySelectorAll('nav a');
+// Mobile menu toggle
+const menuToggle = document.querySelector('.menu-toggle');
+const nav = document.querySelector('nav');
+menuToggle.addEventListener('click', () => {
+  nav.classList.toggle('open');
+});
+
+// Highlight current page
 const currentPage = window.location.pathname.split("/").pop();
-navLinks.forEach(link => {
-  if(link.getAttribute("href") === currentPage){
-    link.classList.add("active");
+document.querySelectorAll('nav a').forEach(link=>{
+  if(link.getAttribute('href')===currentPage){
+    link.classList.add('active');
   }
 });
 
-// Smooth fade-out transition on navigation
-document.querySelectorAll('a[href]').forEach(link => {
-  if (link.hostname === window.location.hostname) {
-    link.addEventListener('click', function (e) {
-      const href = link.getAttribute('href');
-      if (!href.startsWith('#') && !href.startsWith('mailto') && !href.startsWith('tel')) {
-        e.preventDefault();
-        document.body.classList.add('fade-out');
-        setTimeout(() => { window.location = href; }, 400);
-      }
-    });
-  }
-});
+// Image animation on scroll
+const img = document.querySelector('.service-image');
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+    }
+  });
+},{threshold:0.3});
+observer.observe(img);
 </script>
 </body>
 </html>
