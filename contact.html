@@ -10,75 +10,86 @@
 <style>
 :root {
   --accent:#6c4ef3;
+  --green:#16a34a;
   --dark:#0f1724;
   --muted:#6b7280;
   --bg:#f7fbff;
   --white:#fff;
   font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
 }
-*{box-sizing:border-box;}
-body {
-  margin:0;
-  background:var(--bg);
-  color:var(--dark);
-  line-height:1.6;
-  opacity:0;
-  transform:translateY(10px);
-  animation:fadeInUp 0.6s ease-out forwards;
-}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--dark);line-height:1.6;margin:0;}
 
-/* Header */
+/* HEADER */
 header {
-  position:sticky;top:0;z-index:1000;
-  display:flex;justify-content:space-between;align-items:center;
-  padding:14px 5%;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:8px 4%;
   background:var(--white);
   box-shadow:0 2px 10px rgba(0,0,0,0.05);
-  flex-wrap:wrap;
 }
+header .brand img {height:44px;}
 header h1 {
   font-size:1rem;
   color:var(--accent);
-  margin:8px 0;
-  flex:1 1 100%;
+  flex:1;
   text-align:center;
 }
-header img { height:48px; }
+.menu-toggle {
+  background:none;
+  border:none;
+  font-size:26px;
+  cursor:pointer;
+  color:var(--dark);
+  display:none;
+}
 
-/* Navigation */
+/* NAVIGATION */
 nav {
   display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  width:100%;
-  margin-top:6px;
+  gap:14px;
 }
 nav a {
-  margin:6px 10px;
   text-decoration:none;
   color:var(--dark);
   font-weight:600;
-  padding-bottom:4px;
-  border-bottom:2px solid transparent;
-  transition:all 0.3s ease;
+  padding:8px;
+  border-radius:6px;
 }
-nav a.active {
-  color:var(--accent);
-  border-bottom:2px solid var(--accent);
-}
+nav a.active {color:var(--accent);}
 nav a.cta {
   background:var(--accent);
   color:#fff;
   padding:8px 14px;
   border-radius:8px;
-  border:none;
-}
-@media(min-width:768px){
-  header h1{flex:unset;text-align:left;margin-left:10px;}
-  nav{width:auto;margin-top:0;}
 }
 
-/* Section */
+/* MOBILE MENU */
+@media (max-width:768px) {
+  .menu-toggle {display:block;}
+  nav {
+    position:fixed;
+    top:58px;
+    left:0;
+    width:100%;
+    background:var(--white);
+    flex-direction:column;
+    align-items:center;
+    gap:10px;
+    padding:12px 0;
+    box-shadow:0 4px 12px rgba(0,0,0,0.1);
+    max-height:0;
+    overflow:hidden;
+    transition:max-height 0.3s ease;
+  }
+  nav.open {max-height:240px;}
+}
+
+/* SECTION */
 section {
   padding:48px 20px;
   max-width:1100px;
@@ -92,9 +103,10 @@ h2 {
 p {
   text-align:center;
   color:var(--muted);
+  margin-bottom:12px;
 }
 
-/* Form */
+/* FORM */
 form {
   max-width:520px;
   margin:auto;
@@ -126,7 +138,7 @@ button.btn {
   width:100%;
 }
 
-/* Footer */
+/* FOOTER */
 footer {
   text-align:center;
   color:var(--muted);
@@ -136,39 +148,47 @@ footer {
   background:var(--white);
 }
 
-/* Sticky buttons */
-.sticky-call,.sticky-whatsapp {
+/* FLOATING BUTTONS */
+.floating-buttons {
   position:fixed;
   bottom:20px;
-  font-size:16px;
-  font-weight:bold;
-  padding:12px 18px;
-  border-radius:50px;
-  color:white;
-  text-decoration:none;
-  box-shadow:0 4px 8px rgba(0,0,0,0.2);
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  padding:0 20px;
   z-index:9999;
 }
-.sticky-call { right:20px; background:var(--accent); }
-.sticky-whatsapp { left:20px; background:#25D366; }
+.floating-buttons a {
+  width:52px;
+  height:52px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  font-size:22px;
+  text-decoration:none;
+  box-shadow:0 4px 8px rgba(0,0,0,0.25);
+}
+.floating-buttons .whatsapp {background:#25D366;}
+.floating-buttons .call {background:var(--green);}
 
-/* Animation */
+/* ANIMATION */
 @keyframes fadeInUp {
-  to { opacity:1; transform:translateY(0); }
+  from{opacity:0;transform:translateY(10px);}
+  to{opacity:1;transform:translateY(0);}
 }
-.fade-out {
-  opacity:0;
-  transition:opacity 0.4s ease;
-}
+body{animation:fadeInUp 0.6s ease-out forwards;}
+.fade-out {opacity:0;transition:opacity 0.4s ease;}
 </style>
 </head>
 
 <body>
+
 <header>
-  <div class="brand">
-    <img src="images/logo.png" alt="Elite Home Appliances Care">
-  </div>
+  <div class="brand"><img src="images/logo.png" alt="Elite Home Appliances Care"></div>
   <h1>Elite Home Appliances Care</h1>
+  <button class="menu-toggle" aria-label="Toggle menu">☰</button>
   <nav>
     <a href="index.html">Home</a>
     <a href="ac.html">AC Service</a>
@@ -201,37 +221,44 @@ footer {
 </section>
 
 <footer>
-  © 2025 Elite Home Appliances Care — All Rights Reserved. &nbsp;|&nbsp; Call: 
-  <a href="tel:+919025203880">+91 9025203880</a>
+  © 2025 Elite Home Appliances Care — All Rights Reserved. | 
+  Call: <a href="tel:+919025203880">+91 9025203880</a>
 </footer>
 
-<!-- Sticky Buttons -->
-<a href="tel:+919025203880" class="sticky-call">📞 Call Now</a>
-<a href="https://wa.me/919025203880" class="sticky-whatsapp">💬 WhatsApp</a>
+<!-- Floating WhatsApp & Call Buttons -->
+<div class="floating-buttons">
+  <a href="https://wa.me/919025203880" class="whatsapp" title="Chat on WhatsApp">💬</a>
+  <a href="tel:+919025203880" class="call" title="Call Now">📞</a>
+</div>
 
 <script>
-// Highlight current page link
-const navLinks = document.querySelectorAll('nav a');
+// Mobile menu toggle
+const menuToggle = document.querySelector('.menu-toggle');
+const nav = document.querySelector('nav');
+menuToggle.addEventListener('click', () => nav.classList.toggle('open'));
+
+// Highlight current page
 const currentPage = window.location.pathname.split("/").pop();
-navLinks.forEach(link => {
-  if(link.getAttribute("href") === currentPage){
-    link.classList.add("active");
+document.querySelectorAll('nav a').forEach(link=>{
+  if(link.getAttribute('href')===currentPage){
+    link.classList.add('active');
   }
 });
 
 // Smooth fade-out transition on page navigation
-document.querySelectorAll('a[href]').forEach(link => {
-  if (link.hostname === window.location.hostname) {
-    link.addEventListener('click', function (e) {
-      const href = link.getAttribute('href');
-      if (!href.startsWith('#') && !href.startsWith('mailto') && !href.startsWith('tel')) {
+document.querySelectorAll('a[href]').forEach(link=>{
+  if(link.hostname===window.location.hostname){
+    link.addEventListener('click',e=>{
+      const href=link.getAttribute('href');
+      if(!href.startsWith('#') && !href.startsWith('mailto') && !href.startsWith('tel')){
         e.preventDefault();
         document.body.classList.add('fade-out');
-        setTimeout(() => { window.location = href; }, 400);
+        setTimeout(()=>{window.location=href;},400);
       }
     });
   }
 });
 </script>
+
 </body>
 </html>
